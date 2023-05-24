@@ -1,4 +1,5 @@
 import CurrencyComponent from "./Currency/Currency";
+import Loader from "./Loader/Loader";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       }}
     >
       <CurrencyComponent />
+      <Loader />
       React homework template
     </div>
   );
