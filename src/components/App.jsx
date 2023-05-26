@@ -5,7 +5,8 @@ const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 export const App = () => {
   return (
     <Routes>
-      <Route path="/login" component={LoginPage} />
+      <Route path="/login" element={<LoginPage />} />
     </Routes>
   );
 };
+

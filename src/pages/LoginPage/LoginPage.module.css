@@ -1,4 +1,88 @@
-.title {
-  font-weight: 500;
-  font-size: 50px;
+@import '../../styles/fonts.css';
+
+@media screen and (min-width: 768px) {
+  .container {
+    background-image: url(../../images/LoginPage/login-elipse-purple.png),
+      url(../../images/LoginPage/login-elipse-pink.png);
+
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom left, top right;
+    background-color: #e7eaf2;
+  }
+
+  .containerLogo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
+  }
+
+  .image {
+    position: absolute;
+    width: 435.2px;
+    height: 419.5px;
+    left: 76px;
+    top: 150px;
+  }
+
+  .title {
+    position: absolute;
+    width: 187px;
+    height: 45px;
+    left: 200px;
+    top: 597.5px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 45px;
+
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+  }
+
+  .form {
+    padding: 52px 91px 52px 107px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 153px 31px 77.5px 66px;
+  }
+
+  .image {
+    margin-bottom: 32px;
+    width: 452px;
+    height: 413px;
+  }
+
+  .form {
+    position: absolute;
+    width: 50%;
+    height: 100vh;
+    right: 0;
+    top: 0px;
+
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
+  }
 }
