@@ -30,5 +30,6 @@ export const App = () => {
         <CurrencyComponent />
       </div>
     </Router>
+
   );
 };
