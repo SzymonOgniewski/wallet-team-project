@@ -16,7 +16,7 @@ const myApi = {
   transactions: '/api/transactions',
 };
 const transactionsPersistConfig = {
-  key: 'contacts',
+  key: 'transactions',
   storage,
   whitelist: ['list'],
 };
