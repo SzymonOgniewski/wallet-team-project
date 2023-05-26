@@ -29,9 +29,8 @@ export const App = () => {
           <Route path="/currency" element={<Currency />} />
           React homework template
         </Routes>
-        <CurrencyComponent />
+        {/* <CurrencyComponent /> */}
       </div>
     </Router>
-
   );
 };
