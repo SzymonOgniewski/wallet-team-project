@@ -9,7 +9,7 @@ function CurrencyComponent() {
         sale: 27.65,
       },
       EUR: {
-        purchase: 38.0,
+        purchase: 38.21,
         sale: 30.18,
       },
     };
@@ -18,7 +18,7 @@ function CurrencyComponent() {
 
  useEffect(() => {
    fetchData();
- });
+ }, []);
  
   function isExpired(lastRequestDate) {
     const now = new Date();
