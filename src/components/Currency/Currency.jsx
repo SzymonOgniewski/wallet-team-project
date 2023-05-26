@@ -3,42 +3,42 @@ import styles from './CurrencyComponent.module.css';
 import Vector7 from './vector7.png';
 
 function CurrencyComponent() {
-    const test = {
-      USD: {
-        purchase: 27.55,
-        sale: 27.65,
-      },
-      EUR: {
-        purchase: 38.21,
-        sale: 30.18,
-      },
-    };
+  const test = {
+    USD: {
+      purchase: 27.55,
+      sale: 27.65,
+    },
+    EUR: {
+      purchase: 38.21,
+      sale: 30.18,
+    },
+  };
 
   const [currencyData, setCurrencyData] = useState(null);
 
- useEffect(() => {
-   fetchData();
- }, []);
- 
+  useEffect(() => {
+    fetchData();
+  });
+
   function isExpired(lastRequestDate) {
     const now = new Date();
     const expirationTime = new Date(lastRequestDate);
     expirationTime.setHours(expirationTime.getHours() + 1);
     return now > expirationTime;
   }
-  
+
   async function fetchData() {
-    try {      
+    try {
       const storedResponse = localStorage.getItem('currencyData');
       const storedTimestamp = localStorage.getItem('timestamp');
 
-      if (storedResponse && storedTimestamp && !isExpired(storedTimestamp)) {        
+      if (storedResponse && storedTimestamp && !isExpired(storedTimestamp)) {
         // const data = JSON.parse(storedResponse);
         setCurrencyData(test);
-      } else {        
+      } else {
         // const response = await fetch('URL_DO_API');
         // const data = await response.json();
-        
+
         localStorage.setItem('currencyData', JSON.stringify(test));
         localStorage.setItem('timestamp', new Date().toString());
 
@@ -46,16 +46,13 @@ function CurrencyComponent() {
       }
     } catch (error) {
       console.error('Błąd podczas pobierania danych:', error);
-      
     }
   }
 
   function renderData() {
     if (!currencyData) {
       return <p>Ładowanie danych...</p>;
-      }
-      
-
+    }
 
     return (
       <div className={styles.group}>
