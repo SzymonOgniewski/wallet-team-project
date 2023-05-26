@@ -1,5 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+
 :root {
   --black-2: rgba(0, 0, 0, 0.251);
   --black: rgba(0, 0, 0, 1);
