@@ -1,21 +1,34 @@
-import CurrencyComponent from "./Currency/Currency";
-import Loader from "./Loader/Loader";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+import Navigation from './Navigation/navigation';
+import CurrencyComponent from './Currency/Currency';
+
+const Home = () => <h1>Home Page</h1>;
+const Diagram = () => <h1>Diagram Page</h1>;
+const Currency = () => <CurrencyComponent />;
 
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <CurrencyComponent />
-      <Loader />
-      React homework template
-    </div>
+    <Router>
+      <div
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 40,
+          color: '#010101',
+        }}
+      >
+        <Navigation />
+        <Routes>
+          <Route path="*" exact element={<Home />} />
+          <Route path="/diagram" element={<Diagram />} />
+          <Route path="/currency" element={<Currency />} />
+          React homework template
+        </Routes>
+        {/* <CurrencyComponent /> */}
+      </div>
+    </Router>
   );
 };
