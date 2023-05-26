@@ -1,0 +1,36 @@
+.test {
+  list-style: none;
+}
+.poppinsNormalBlack18px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-1);
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+}
+.poppinsBoldBlack18px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-1);
+  font-weight: 700;
+  font-style: normal;
+}
+.valignTextMiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.place {
+  height: 27px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+.exclude{
+    height: 18px;
+    width: 18px;
+    margin-right: 20px;
+}
+.activeLink {
+   font-style: bold;
+}
