@@ -9,26 +9,24 @@ const Currency = () => <CurrencyComponent />;
 
 export const App = () => {
   return (
-    <Router>
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
+    <div
+      style={{
+        height: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: 40,
+        color: '#010101',
+      }}
+    >
+      <Router>
         <Navigation />
         <Routes>
-          <Route path="*" exact element={<Home />} />
+          <Route path="*" element={<Home />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
-          React homework template
         </Routes>
-        {/* <CurrencyComponent /> */}
-      </div>
-    </Router>
+      </Router>
+    </div>
   );
 };
