@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CurrencyComponent.module.css';
 import Vector7 from './vector7.png';
-
+//import { getTransactions } from 'redux/transactions/TransactionSelectors';
+// const isLoading = useSelector(getIsLoading);
+// const dispatch = useDispatch();
+// const transactions = useSelector(getTransaction); tutaj pobieramy dane ze stora
 function CurrencyComponent() {
   const [currencyData, setCurrencyData] = useState(null);
+
 
   useEffect(() => {
     const fetchData = async () => {
