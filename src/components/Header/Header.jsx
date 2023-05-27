@@ -10,7 +10,7 @@ import css from "./Header.module.css";
 //import authSelectors
 //import {toggleModal} from "../../redux/data/globalSlice";
 
-import Logo from "components/Logo";
+import Logo from "../Logo/Logo";
 import LogoutSvg from "./LogoutSvg";
 
 const Header = () => {
