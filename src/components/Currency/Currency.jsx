@@ -6,51 +6,51 @@ import Vector7 from './vector7.png';
 // const dispatch = useDispatch();
 // const transactions = useSelector(getTransaction); tutaj pobieramy dane ze stora
 function CurrencyComponent() {
-  const test = {
-    USD: {
-      purchase: 27.55,
-      sale: 27.65,
-    },
-    EUR: {
-      purchase: 38.21,
-      sale: 30.18,
-    },
-  };
-
   const [currencyData, setCurrencyData] = useState(null);
 
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const storedResponse = localStorage.getItem('currencyData');
+        const storedTimestamp = localStorage.getItem('timestamp');
+
+        if (storedResponse && storedTimestamp && !isExpired(storedTimestamp)) {
+          setCurrencyData(JSON.parse(storedResponse));
+        } else {
+          const usdResponse = await fetch(
+            'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
+          );
+          const usdData = await usdResponse.json();
+
+          const eurResponse = await fetch(
+            'http://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
+          );
+          const eurData = await eurResponse.json();
+
+          const data = {
+            usd: usdData.rates[0],
+            eur: eurData.rates[0],
+          };
+
+          localStorage.setItem('currencyData', JSON.stringify(data));
+          localStorage.setItem('timestamp', new Date().toString());
+
+          setCurrencyData(data);
+        }
+      } catch (error) {
+        console.error('Błąd podczas pobierania danych:', error);
+      }
+    };
+
     fetchData();
-  });
+  }, []);
 
   function isExpired(lastRequestDate) {
     const now = new Date();
     const expirationTime = new Date(lastRequestDate);
     expirationTime.setHours(expirationTime.getHours() + 1);
     return now > expirationTime;
-  }
-
-  async function fetchData() {
-    try {
-      const storedResponse = localStorage.getItem('currencyData');
-      const storedTimestamp = localStorage.getItem('timestamp');
-
-      if (storedResponse && storedTimestamp && !isExpired(storedTimestamp)) {
-        // const data = JSON.parse(storedResponse);
-        setCurrencyData(test);
-      } else {
-        // const response = await fetch('URL_DO_API');
-        // const data = await response.json();
-
-        localStorage.setItem('currencyData', JSON.stringify(test));
-        localStorage.setItem('timestamp', new Date().toString());
-
-        setCurrencyData(test);
-      }
-    } catch (error) {
-      console.error('Błąd podczas pobierania danych:', error);
-    }
   }
 
   function renderData() {
@@ -74,21 +74,21 @@ function CurrencyComponent() {
               <span className={styles.circeBoldWhite18px}>Sale</span>
             </div>
           </div>
-          {Object.keys(currencyData).map(currency => (
-            <div className={styles.flexRow} key={currency}>
+          {Object.entries(currencyData).map(([currencyCode, currency]) => (
+            <div className={styles.flexRow} key={currencyCode}>
               <div className={styles.price}>
                 <span className={styles.circeRegularNormalWhite16px}>
-                  {currency}
+                  {currencyCode.toUpperCase()}
                 </span>
               </div>
               <div className={styles.text1}>
                 <span className={styles.circeRegularNormalWhite16px}>
-                  {test[currency].purchase}
+                  {currency.bid.toFixed(2)}
                 </span>
               </div>
               <div className={styles.text3}>
                 <span className={styles.circeRegularNormalWhite16px}>
-                  {test[currency].sale}
+                  {currency.ask.toFixed(2)}
                 </span>
               </div>
             </div>
@@ -103,3 +103,4 @@ function CurrencyComponent() {
 }
 
 export default CurrencyComponent;
+
