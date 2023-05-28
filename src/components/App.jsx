@@ -1,9 +1,7 @@
-
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
 import Navigation from './Navigation/navigation';
 import CurrencyComponent from './Currency/Currency';
+import TotalBalanceComponent from './Balance/Balance';
 import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
 import Header from "./Header/Header";
 import { lazy } from 'react';
@@ -17,6 +15,8 @@ export const App = () => {
   return (
     <Router>
       <div>
+ <Header />
+  <TotalBalanceComponent />
         <Navigation />
         <Routes>
           <Route path="/login" element={<LoginPage />} />

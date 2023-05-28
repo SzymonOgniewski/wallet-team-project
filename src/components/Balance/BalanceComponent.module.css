@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css?family=Poppins:400,788");
+@font-face {
+  font-family: "Circe-Regular";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/Circe-Regular") format("truetype");
+}
+h1{margin: 0;}
+
+.valignTextMiddle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.group11 {
+  align-items: flex-start;
+  border-radius: 30px;
+  display: flex;
+  height: 88px;
+  min-width: 399px;
+  margin-bottom: 32px;
+}
+
+.overlapGroup {
+  align-items: flex-start;
+  background-color: var(--white);
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 88px;
+  padding: 7px 40px;
+  width: 395px;
+}
+
+.yourBalance {
+  letter-spacing: 0;
+  line-height: normal;
+  min-height: 13px;
+  white-space: nowrap;
+}
+
+.phone {
+  height: 36px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.circeRegularNormalQuickSilver12px {
+  color: var(--quick-silver);
+  font-size: var(--font-size-xs);
+  font-family: var(--font-family-circe-regular);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppinsNormalBlack30px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-x1);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppinsBoldBlack30px {
+  color: var(--black);
+  font-family: var(--font-family-poppins);
+  font-size: var(--font-size-x1);
+  font-weight: 788;
+  font-style: normal;
+}

@@ -4,6 +4,7 @@ import { authReducer } from './auth/AuthSlice';
 import { persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
+import financeReducer from './finance/financeSlice';
 import {
   FLUSH,
   PAUSE,
@@ -34,6 +35,7 @@ export const Store = configureStore({
       transactionsReducer
     ),
     auth: persistReducer(authPersistConfig, authReducer),
+    finance: financeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
