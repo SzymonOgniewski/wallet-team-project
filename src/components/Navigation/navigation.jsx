@@ -10,7 +10,6 @@ import excludeImage6 from './exclude6.png';
 
 const Navigation = () => {
   const location = useLocation();
-console.log(location.pathname === '/wallet-team-project');
   return (
     <nav>
       <ul>
