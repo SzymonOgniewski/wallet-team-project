@@ -1,0 +1,40 @@
+.ref {
+    display: inline-flex;
+    align-items: center;
+    height: 30px;
+    text-decoration: none;
+  }
+  
+  .svg {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .text {
+    font-family: 'Poppins', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 15px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 2;
+    color: #000000;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .svg {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .ref {
+      height: 40px;
+    }
+  
+    .text {
+      margin-left: 20px;
+      font-size: 30px;
+      line-height: 1.5;
+    }
+  }
