@@ -1,6 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { transactionsReducer } from './transactions/transactionSlice.js';
 import { authReducer } from './auth/AuthSlice';
+import { globalReducer } from './data/globalSlice';
 import { persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
@@ -13,9 +14,11 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist/es/constants';
+
 const myApi = {
   transactions: '/api/transactions',
 };
+
 const transactionsPersistConfig = {
   key: 'transactions',
   storage,
@@ -35,6 +38,7 @@ export const Store = configureStore({
       transactionsReducer
     ),
     auth: persistReducer(authPersistConfig, authReducer),
+    global: globalReducer,
     finance: financeReducer,
   },
   middleware: getDefaultMiddleware =>
