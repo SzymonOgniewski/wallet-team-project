@@ -1,0 +1,149 @@
+@import url('https://fonts.cdnfonts.com/css/circe');
+
+.containerForm {
+  position: absolute;
+  width: 533px;
+  height: 468px;
+
+  background: #ffffff;
+  border-radius: 20px;
+
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+}
+
+.logo {
+  margin-right: 20px;
+}
+
+.tittle {
+  font-family: 'Poppins';
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 0.85;
+
+  color: #000000;
+}
+
+.label {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 65px;
+  margin-right: 58px;
+  margin-bottom: 40px;
+}
+
+.emailIcon {
+  height: 16px;
+  width: 20px;
+  position: absolute;
+  left: 10px;
+  bottom: 14px;
+}
+
+.passwordIcon {
+  height: 16px;
+  width: 20px;
+  position: absolute;
+  left: 10px;
+  bottom: 14px;
+}
+
+.input {
+  font-family: 'Circe';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: #bdbdbd;
+
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #e0e0e0;
+  height: 24px;
+  padding: 8px 8px 8px 45px;
+}
+
+.input:focus {
+  border-bottom: 1px solid #24cca7;
+  color: #24cca7;
+}
+
+.containerButton {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonLogin {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+
+  background: #24cca7;
+  color: white;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+  width: 280px;
+  height: 50px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.buttonReg {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  color: #4a56e2;
+  background: #ffffff;
+  border: 1px solid #4a56e2;
+  border-radius: 20px;
+  outline: none;
+  width: 280px;
+  height: 50px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.button:focus,
+.button:hover {
+  background-color: #c9ada7;
+  color: #4a4e69;
+  box-shadow: 0px 3px 1px cubic-bezier(0.4, 0, 0.2, 1),
+    0px 1px 2px cubic-bezier(0.4, 0, 0.2, 1),
+    0px 2px 2px cubic-bezier(0.4, 0, 0.2, 1);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
