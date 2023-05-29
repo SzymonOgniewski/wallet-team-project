@@ -1,15 +1,15 @@
 @font-face {
-  font-family: "Circe-Regular";
+  font-family: 'Circe-Regular';
   font-style: normal;
   font-weight: 488;
-  src: url("https://fonts.animaapp.com/Circe-Regular") format("truetype");
+  src: url('https://fonts.animaapp.com/Circe-Regular') format('truetype');
 }
 
 @font-face {
-  font-family: "Circe-Bold";
+  font-family: 'Circe-Bold';
   font-style: normal;
   font-weight: 700;
-  src: url("https://fonts.animsapp.com/Circe-Bold") format("truetype");
+  src: url('https://fonts.animsapp.com/Circe-Bold') format('truetype');
 }
 
 .valign-text-middle {
@@ -26,12 +26,16 @@
   min-height: 306px;
 }
 
+.navHeight {
+  max-height: 60vh;
+  overflow-y: scroll;
+}
 .navbarLinkContainer {
   align-items: flex-start;
   background-color: var(--white);
   border-radius: 30px;
   display: flex;
-  
+
   min-width: 715px;
   padding: 15px 20px;
 }
@@ -188,9 +192,9 @@
 
 @font-face {
   font-style: normal;
-  font-family: "Circe-Regular";
+  font-family: 'Circe-Regular';
   font-weight: 400;
-  src: url("https://fonts.animeapp.com/Circe-Regular") format("truetype");
+  src: url('https://fonts.animeapp.com/Circe-Regular') format('truetype');
 }
 
 .btn {
@@ -229,10 +233,10 @@
   font-style: normal;
 }
 
-.edit{
-    height: 14px;
-    width: 14px;
-    margin-left: 40px;
+.edit {
+  height: 14px;
+  width: 14px;
+  margin-left: 40px;
 }
 
 .circeBoldStrawberry16px {
@@ -243,7 +247,6 @@
   font-style: normal;
 }
 
-
 .circeBoldCaribbeanGreen16px {
   color: var(--caribbean-green);
   font-family: var(--font-family-circe-bold);
@@ -252,12 +255,6 @@
   font-style: normal;
 }
 
-
-
-
-
 .plus {
-    margin-left: 63px;
- 
+  margin-left: 63px;
 }
-
