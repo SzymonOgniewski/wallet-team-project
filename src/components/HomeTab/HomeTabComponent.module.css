@@ -1,16 +1,4 @@
-@font-face {
-  font-family: 'Circe-Regular';
-  font-style: normal;
-  font-weight: 488;
-  src: url('https://fonts.animaapp.com/Circe-Regular') format('truetype');
-}
 
-@font-face {
-  font-family: 'Circe-Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: url('https://fonts.animsapp.com/Circe-Bold') format('truetype');
-}
 
 .valign-text-middle {
   display: flex;

@@ -13,9 +13,11 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist/es/constants';
+
 const myApi = {
   transactions: '/api/transactions',
 };
+
 const transactionsPersistConfig = {
   key: 'transactions',
   storage,

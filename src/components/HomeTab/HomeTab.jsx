@@ -1,247 +1,12 @@
+import React from 'react';
 import styles from './HomeTabComponent.module.css';
 import edit from './edit.png';
 
+import { useSelector } from 'react-redux';
+
 const HomeTab = () => {
-  const data = [
-    {
-      transactionDate: '04.01.19',
-      type: 'income',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '3000.10',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '3000',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: '300.00',
-    },
-  ];
+  const data = useSelector(state => state.finance.data);
+
   return (
     <div className={styles.group306}>
       <div
@@ -264,63 +29,70 @@ const HomeTab = () => {
         </div>
       </div>
       <div className={styles.navHeight}>
-        {data.map((item, index) => (
-          <div className={styles.navbar1} key={index}>
-            <div
-              className={`${styles.navbarLinkDate1} ${styles.circeRegularNormalBlack16px}`}
-            >
-              <span className={styles.circeRegularNormalBlack16px}>
-                {item.transactionDate}
-              </span>
-            </div>
-            <div
-              className={`${styles.navbarLinkText1} ${styles.circeRegularNormalBlack16px}`}
-            >
-              <span className={`${styles.circeRegularNormalBlack16px} `}>
-                {item.type === 'income' ? '+' : '-'}
-              </span>
-            </div>
-            <div
-              className={`${styles.navbarLinkOther} ${
-                styles.circeRegularNormalBlack16px
-              } ${item.type === 'income' ? styles.plus : ''}`}
-            >
-              <span className={styles.circeRegularNormalBlack16px}>
-                {item.category}
-              </span>
-            </div>
-            <div
-              className={`${styles.navbarLinkGiftForYourWife} ${styles.circeRegularNormalBlack16px}`}
-            >
-              <span className={styles.circeRegularNormalBlack16px}>
-                {item.comment}
-              </span>
-            </div>
-            <div
-              className={`${styles.navbarLinkPhone} ${styles.circeRegularNormalBlack16px}`}
-            >
-              <span
-                className={
-                  item.type === 'income'
-                    ? `${styles.circeBoldCaribbeanGreen16px}`
-                    : `${styles.circeBoldStrawberry16px}`
-                }
-              >
-                {item.amount}
-              </span>
-            </div>
-            <img className={styles.edit} src={edit} alt="Vector 18" />
-            <div className={styles.btn}>
+        {data.length === 0 ? (
+          <div className={styles.noData}>No transactions found.</div>
+        ) : (
+          data.map((item, index) => (
+            <div className={styles.navbar1} key={index}>
               <div
-                className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
+                className={`${styles.navbarLinkDate1} ${styles.circeRegularNormalBlack16px}`}
               >
-                <span className={styles.circeRegularNormalWhite14px}>
-                  Delete
+                <span className={styles.circeRegularNormalBlack16px}>
+                  {item.transactionDate}
                 </span>
               </div>
+              <div
+                className={`${styles.navbarLinkText1} ${styles.circeRegularNormalBlack16px}`}
+              >
+                <span className={`${styles.circeRegularNormalBlack16px} `}>
+                  {item.type === 'income' ? '+' : '-'}
+                </span>
+              </div>
+              <div
+                className={`${styles.navbarLinkOther} ${
+                  styles.circeRegularNormalBlack16px
+                } ${item.type === 'income' ? styles.plus : ''}`}
+              >
+                <span className={styles.circeRegularNormalBlack16px}>
+                  {item.category}
+                </span>
+              </div>
+              <div
+                className={`${styles.navbarLinkGiftForYourWife} ${styles.circeRegularNormalBlack16px}`}
+              >
+                <span className={styles.circeRegularNormalBlack16px}>
+                  {item.comment}
+                </span>
+              </div>
+              <div
+                className={`${styles.navbarLinkPhone} ${styles.circeRegularNormalBlack16px}`}
+              >
+                <span
+                  className={
+                    item.type === 'income'
+                      ? `${styles.circeBoldCaribbeanGreen16px}`
+                      : `${styles.circeBoldStrawberry16px}`
+                  }
+                >
+                  {item.amount.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).replace(/,/g, '\u00A0')}
+                </span>
+              </div>
+              <img className={styles.edit} src={edit} alt="Vector 18" />
+              <div className={styles.btn}>
+                <div
+                  className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
+                >
+                  <span className={styles.circeRegularNormalWhite14px}>
+                    Delete
+                  </span>
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        )}
       </div>
     </div>
   );
