@@ -59,6 +59,7 @@ export const App = () => {
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
         </Routes>
+        {/* <CurrencyComponent /> */}
       </div>
     </Router>
   );
