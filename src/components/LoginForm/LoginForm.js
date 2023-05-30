@@ -2,12 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { useDispatch, useSelector } from 'react-redux';
+import { logIn } from '../../redux/auth/AuthThunk';
+import { selectIsLoggedIn } from '../../redux/auth/AuthSelectors'; // Update the import path
 import css from './LoginForm.module.css';
 import logo from '../../images/LoginForm/logo.svg';
 import email from '../../images/LoginForm/email.svg';
 import password from '../../images/LoginForm/password.svg';
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn); // Use the selector from AuthSlice
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -23,7 +29,7 @@ export const LoginForm = () => {
         .required('Password is required'),
     }),
     onSubmit: values => {
-      console.log('Form submitted:', values);
+      dispatch(logIn(values));
     },
   });
 
@@ -58,14 +64,21 @@ export const LoginForm = () => {
             {...formik.getFieldProps('password')}
           />
         </label>
-        {formik.touched.password && formik.errors.password ? (
-          <div className={css.error}>{formik.errors.password}</div>
-        ) : null}
-
         <div className={css.containerButton}>
-          <button className={css.buttonLogin} type="submit">
-            LOGIN
-          </button>
+          {formik.touched.password && formik.errors.password ? (
+            <div className={css.error}>{formik.errors.password}</div>
+          ) : null}
+
+          {isLoggedIn ? (
+            <button className={css.buttonLogin} type="button" disabled>
+              Logging in...
+            </button>
+          ) : (
+            <button className={css.buttonLogin} type="submit">
+              LOGIN
+            </button>
+          )}
+
           <Link to="/registration" className={css.buttonReg}>
             REGISTER
           </Link>
