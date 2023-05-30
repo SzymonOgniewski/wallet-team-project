@@ -8,7 +8,6 @@ import Vector7 from './vector7.png';
 function CurrencyComponent() {
   const [currencyData, setCurrencyData] = useState(null);
 
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -21,22 +20,28 @@ function CurrencyComponent() {
           const usdResponse = await fetch(
             'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
           );
-          const usdData = await usdResponse.json();
 
           const eurResponse = await fetch(
             'http://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
           );
-          const eurData = await eurResponse.json();
 
-          const data = {
-            usd: usdData.rates[0],
-            eur: eurData.rates[0],
-          };
+          if (usdResponse.ok && eurResponse.ok) {
+            const usdData = await usdResponse.json();
+            const eurData = await eurResponse.json();
 
-          localStorage.setItem('currencyData', JSON.stringify(data));
-          localStorage.setItem('timestamp', new Date().toString());
+            const data = {
+              usd: usdData.rates[0],
+              eur: eurData.rates[0],
+            };
 
-          setCurrencyData(data);
+            localStorage.setItem('currencyData', JSON.stringify(data));
+            localStorage.setItem('timestamp', new Date().toString());
+
+            setCurrencyData(data);
+          } else {
+            const storedData = JSON.parse(storedResponse);
+            setCurrencyData(storedData);
+          }
         }
       } catch (error) {
         console.error('Błąd podczas pobierania danych:', error);
@@ -103,4 +108,3 @@ function CurrencyComponent() {
 }
 
 export default CurrencyComponent;
-
