@@ -5,6 +5,7 @@ import TotalBalanceComponent from './Balance/Balance';
 import Navigation from './Navigation/navigation';
 import CurrencyComponent from './Currency/Currency';
 import { ButtonAddTransactions } from './ButtonAddTransactions/ButtonAddTransactions';
+import HomeTab from './HomeTab/HomeTab';
 
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
@@ -14,7 +15,7 @@ const Home = () => (
   <>
     <Navigation />
     <TotalBalanceComponent />
-    <h1>Home Page</h1>
+    <HomeTab/>
   </>
 );
 const Diagram = () => (
@@ -36,9 +37,7 @@ export const App = () => {
   return (
     <Router>
       <div>
- <Header />
-  <TotalBalanceComponent />
-        <Navigation />
+        <Header />       
         <Routes>
           <Route
             path="/login"
