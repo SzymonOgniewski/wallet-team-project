@@ -1,6 +1,6 @@
 import { createPortal } from "react-dom";
-//import funkcja logout
-//import { useDispatch } from "react-redux";
+import { logOut } from "redux/auth/AuthThunk";
+import { useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import css from "./ModalLogout.module.css";
@@ -8,7 +8,7 @@ import css from "./ModalLogout.module.css";
 const modalRoot = document.querySelector("#modal-logout-root");
 
 const ModalLogout = ({closeModal}) => {
-  //const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -33,13 +33,14 @@ const ModalLogout = ({closeModal}) => {
     <div className={css.ExitModal} onClick={handleBackdropClose}>
       <div className={css.ExitModalContent}>
         <h1 className={css.ExitTitle}>
-          Unsaved changes will be lost. Are you sure you want to sign out?
+          Unsaved changes will be lost.<br />
+          Are you sure you want to sign out?
         </h1>
         <button
           type="button"
           className={css.BtnYes}
           onClick={() => {
-            //dispatch(funkcja logout);
+            dispatch(logOut);
             closeModal();
           }}
         >

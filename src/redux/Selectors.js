@@ -1,0 +1,1 @@
+export const getIsModalLogoutOpen = state => state.global.isModalLogoutOpen;
