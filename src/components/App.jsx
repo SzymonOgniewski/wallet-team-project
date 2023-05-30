@@ -1,14 +1,10 @@
-import React, { lazy, Suspense, startTransition } from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './Header/Header';
 import TotalBalanceComponent from './Balance/Balance';
 import Navigation from './Navigation/navigation';
 import CurrencyComponent from './Currency/Currency';
-import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
-import Header from "./Header/Header";
 import { ButtonAddTransactions } from './ButtonAddTransactions/ButtonAddTransactions';
-import { lazy } from 'react';
-const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
@@ -64,7 +60,6 @@ export const App = () => {
           <Route path="*" element={<Home />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
-          
         </Routes>
       </div>
     </Router>
