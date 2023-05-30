@@ -1,23 +1,22 @@
 import React from "react";
 import Media from "react-media";
-//import { useDispatch, useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import css from "./Header.module.css";
 
-//import ModalLogout from "../ModalLogout/ModalLogout";
+import ModalLogout from "./ModalLogout/ModalLogout";
 
-//import {getIsModalLogoutOpen} from "../../redux/selectors";
-//import authSelectors
-//import {toggleModal} from "../../redux/data/globalSlice";
+import {getIsModalLogoutOpen} from "../../redux/Selectors";
+import { selectUserName } from "../../redux/auth/AuthSelectors";
+import {toggleModal} from "../../redux/data/globalSlice";
 
 import Logo from "../Logo/Logo";
 import LogoutSvg from "./LogoutSvg";
 
 const Header = () => {
-    //const dispatch = useDispatch();
-
-    //const isModalLogoutOpen = useSelector(getIsModalLogoutOpen);
-    // const userName 
+    const dispatch = useDispatch();
+    const isModalLogoutOpen = useSelector(getIsModalLogoutOpen);
+    const userName = useSelector(selectUserName);
 
     return (
         <header className={css.Header}>
@@ -25,11 +24,11 @@ const Header = () => {
                 <nav className={css.Nav}>
                     <Logo path="/home" />
                     <div className={css.UserNav}>
-                        <p className={css.UserNavItem}>userName</p>
+                        <p className={css.UserNavItem}>{userName}</p>
                         <button
                           type="button"
                           className={css.ButtonExit}
-                          //onClick={() => {dispatch(toggleModal());}}
+                          onClick={() => {dispatch(toggleModal());}}
                         >
                             <LogoutSvg />
                             <Media
@@ -41,13 +40,13 @@ const Header = () => {
                 </nav>
             </div>
 
-            {/* {isModalLogoutOpen && (
+            {isModalLogoutOpen && (
               <ModalLogout
                 closeModal={() => {
                   dispatch(toggleModal());
                 }}
-               />
-            )} */}
+              />
+            )}
 
         </header>
     );

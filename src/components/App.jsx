@@ -4,6 +4,11 @@ import Header from './Header/Header';
 import TotalBalanceComponent from './Balance/Balance';
 import Navigation from './Navigation/navigation';
 import CurrencyComponent from './Currency/Currency';
+import { RegistrationPage } from '../pages/RegistrationPage/RegistrationPage';
+import Header from "./Header/Header";
+import { ButtonAddTransactions } from './ButtonAddTransactions/ButtonAddTransactions';
+import { lazy } from 'react';
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
@@ -36,7 +41,9 @@ export const App = () => {
     <Router>
       <div>
         <Header />
-        
+        <TotalBalanceComponent />
+        <ButtonAddTransactions />
+        <Navigation />
         <Routes>
           <Route
             path="/login"
@@ -57,6 +64,7 @@ export const App = () => {
           <Route path="*" element={<Home />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
+          
         </Routes>
       </div>
     </Router>
