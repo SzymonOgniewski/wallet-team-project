@@ -9,7 +9,7 @@ const TotalBalanceComponent = () => {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })
-    .replace(/,/g, '\u00A0'); // Replace commas with non-breaking spaces
+    .replace(/,/g, '\u00A0');
 
   return (
     <div className={styles.group11}>
