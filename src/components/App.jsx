@@ -36,9 +36,8 @@ export const App = () => {
   return (
     <Router>
       <div>
-        <Header />
-        <TotalBalanceComponent />
-        <ButtonAddTransactions />
+ <Header />
+  <TotalBalanceComponent />
         <Navigation />
         <Routes>
           <Route
@@ -61,6 +60,7 @@ export const App = () => {
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
         </Routes>
+        {/* <CurrencyComponent /> */}
       </div>
     </Router>
   );
