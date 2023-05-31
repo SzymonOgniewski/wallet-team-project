@@ -11,7 +11,19 @@ const handleRejection = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
-const initialTransactionsState = { items: [], isLoading: false, error: null };
+const initialTransactionsState = {
+  items: [
+    {
+      transactionDate: '04.01.19',
+      type: 'income',
+      category: 'Other',
+      comment: 'Gift for your wife',
+      amount: 3000.1,
+    },
+  ],
+  isLoading: false,
+  error: null,
+};
 const isPendingAction = action => action.type.endsWith('pending');
 const isRejectedAction = action => action.type.endsWith('reject');
 

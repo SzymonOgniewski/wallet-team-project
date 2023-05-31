@@ -15,7 +15,7 @@ const Home = () => (
   <>
     <Navigation />
     <TotalBalanceComponent />
-    {/* <HomeTab /> */}
+    <HomeTab />
   </>
 );
 const Diagram = () => (

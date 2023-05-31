@@ -5,7 +5,7 @@ import edit from './edit.png';
 import { useSelector } from 'react-redux';
 
 const HomeTab = () => {
-  const data = useSelector(state => state.finance.data);
+  const data = useSelector(state => state.transactions.items);
 
   return (
     <div className={styles.group306}>
