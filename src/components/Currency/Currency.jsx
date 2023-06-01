@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styles from './CurrencyComponent.module.css';
 import Vector7 from './vector7.png';
+
 //import { getTransactions } from 'redux/transactions/TransactionSelectors';
 // const isLoading = useSelector(getIsLoading);
 // const dispatch = useDispatch();
@@ -64,6 +65,7 @@ function CurrencyComponent() {
     }
 
     return (
+   
       <div className={styles.group}>
         <div className={styles.overlapGroup}>
           <div
@@ -99,7 +101,7 @@ function CurrencyComponent() {
             </div>
           ))}
           <img className={styles.vector7} src={Vector7} alt="Vector 7" />
-        </div>
+       </div>
       </div>
     );
   }
