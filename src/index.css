@@ -1,6 +1,6 @@
 @import-normalize; /* bring in normalize.css styles */
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap');
 
 :root {
   --black-2: rgba(0, 0, 0, 0.251);
@@ -32,7 +32,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #E7EAF2;
+  background-color: #e7eaf2;
 }
 
 code {
@@ -44,3 +44,18 @@ li {
   list-style: none;
 }
 
+a:-webkit-any-link {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+@media screen and (min-width: 768px) {
+  body {
+    background-image: url(../src/images/LoginPage/login-elipse-purple.png),
+      url(../src/images/LoginPage/login-elipse-pink.png);
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom left, top right;
+    backdrop-filter: blur(25px);
+    height: 100%;
+  }
+}
