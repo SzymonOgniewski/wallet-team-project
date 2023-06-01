@@ -12,7 +12,7 @@ const RegistrationPage = lazy(() =>
 
 export const App = () => {
   return (
-    <Router>
+    <Router basename='/wallet-team-project'>
       <div>
         <Routes>
           <Route
