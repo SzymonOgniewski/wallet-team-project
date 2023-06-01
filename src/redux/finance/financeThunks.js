@@ -1,5 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const fetchBalance = createAsyncThunk(
   'finance/fetchBalance',
@@ -9,7 +10,8 @@ export const fetchBalance = createAsyncThunk(
         'https://wallet-dybb.onrender.com/api/users/current'
       ); 
       return response.data.balance; 
-    } catch (error) {      
+    } catch (error) { 
+      toast.error('Failed to fetch balance')
       throw new Error('Failed to fetch balance');
     }
   }

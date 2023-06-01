@@ -42,14 +42,12 @@ export const logIn = createAsyncThunk(
   async (credentials, thunkAPI) => {
     try {     
       console.log(credentials)
-      const res = await axios.post('/api/users/sign-in', credentials);
-      // After successful login, add the token to the HTTP header
-      console.log(res);
-      setAuthHeader(res.data.token);
+      const res = await axios.post('/api/users/sign-in', credentials);     
+      setAuthHeader(res.data.token);     
       return res.data;
     } catch (error) {
       console.log(error);
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(toast.error(error.message));
     }
   }
 );
