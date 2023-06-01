@@ -1,10 +1,10 @@
-
-
 .group {
-  align-items: flex-start;
+  align-items: center;
   display: flex;
-  height: 331px;
-  min-width: 411px;
+  justify-content: center;
+  min-height: 174px;
+  min-width: 280px;
+  margin: 0 20px;
 }
 
 .overlapGroup {
@@ -14,119 +14,59 @@
   min-height: 331px;
   display: flex;
   flex-direction: column;
-  width: 393px;
+  width: 100%;
 }
 
 .overlapGroup1 {
-  align-items: flex-start;
+  align-items: center;
   background-color: var(--white-3);
   border-radius: 30px 30px 0px 0px;
   display: flex;
   height: 28px;
-  min-width: 393px;
-  padding: 16px 44px;
-  
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
-.currency {
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 27px;
-  min-width: 71px;
-  margin-left: 40px;
-}
-
-.place {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 40px;
-  min-height: 27px;
-  min-width: 71px;
+.overlapGroup1 div {
+  width: 33.3%;
   text-align: center;
-}
-
-.place1 {
-  letter-spacing: 0;
-  line-height: normal;
-  min-width: 33px;
-  text-align: center;
-  margin-left: 70px;
-  min-height: 27px;
 }
 
 .flexRow {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   height: 24px;
   min-width: 274px;
-  margin-right: 3px;
   margin-top: 19px;
+  width: 100%;
 }
 
-.price {
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 24px;
-  min-width: 33px;
+.flexRow:first-child {
+  background-color: var(--gray);
 }
 
-.text1 {
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 24px;
-  min-width: 36px;
-  margin-left: 79px;
+.flexRow div {
+  width: 33.3%;
+  text-align: center;
 }
 
-.text3 {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 90px;
-  text-align: right;
-  min-height: 24px;
-  min-width: 36px;
+.flexRow span {
+  flex: 1;
+  text-align: center;
+  color: var(--white);
+  width: 33.33%;
 }
 
-.flex-row-1 {
-  align-items: flex-start;
-  display: flex;
-  height: 24px;
-  margin-right: 3px;
-  margin-top: 24px;
-  min-width: 274px;
-}
-
-
-.price-1 {
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 24px;
-  min-width: 32px;
-}
-
-.text-2 {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 88px;
-  min-height: 24px;
-  min-width: 39px;
-}
-
-.text-4 {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 87px;
-  min-height: 24px;
-  min-width: 36px;
-  text-align: right;
+.flexRow:first-child span {
+  font-weight: bold;
 }
 
 .vector7 {
   height: 118px;
   margin-top: 62px;
-  width: 393px;
+  width: 100%;
 }
-
 
 .circeRegularNormalWhite14px {
   color: var(--white);
@@ -146,7 +86,7 @@
 
 .circeBoldBlack18px {
   color: var(--black);
-  font-family: var(--font-family-circe-bold);
+  font-family: var(--font-family-circe-);
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
@@ -162,7 +102,7 @@
 
 .circeBoldWhite18px {
   color: var(--white);
-  font-family: var(--font-family-circe-bold);
+  font-family: var(--font-family-circe-regular);
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
@@ -182,4 +122,11 @@
   font-size: var(--font-size-1);
   font-weight: 400;
   font-style: normal;
+}
+
+@media screen and (min-width: 1280px) {
+  .group {
+    justify-content: flex-start;
+    max-width: 395px;
+  }
 }

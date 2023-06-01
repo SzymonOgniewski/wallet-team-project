@@ -4,7 +4,6 @@
   .container {
     background-image: url(../../images/LoginPage/login-elipse-purple.png),
       url(../../images/LoginPage/login-elipse-pink.png);
-
     background-repeat: no-repeat, no-repeat;
     background-position: bottom left, top right;
     background-color: #e7eaf2;
@@ -18,31 +17,17 @@
   }
 
   .image {
-    position: absolute;
-    width: 435.2px;
-    height: 419.5px;
-    left: 76px;
-    top: 150px;
+    margin-bottom: 32px;
+    width: 274px;
+    height: 250px;
   }
 
   .title {
-    position: absolute;
-    width: 187px;
-    height: 45px;
-    left: 200px;
-    top: 597.5px;
-
     font-family: 'Poppins';
-    font-style: normal;
     font-weight: 400;
     font-size: 30px;
-    line-height: 45px;
-
-    display: flex;
-    align-items: center;
-    text-align: center;
-
-    color: #000000;
+    line-height: 1.5;
+    padding-left: 40px;
   }
 
   .form {
@@ -62,6 +47,11 @@
     overflow: hidden;
   }
 
+  .containerLogo {
+    flex-direction: column;
+    margin: auto;
+  }
+
   .logo {
     display: flex;
     align-items: center;
@@ -75,14 +65,19 @@
     height: 413px;
   }
 
-  .form {
-    position: absolute;
-    width: 50%;
-    height: 100vh;
-    right: 0;
-    top: 0px;
+  .tittle {
+    padding-left: 0px;
+  }
 
-    background: rgba(255, 255, 255, 0.4);
+  .form {
+    min-height: 100vh;
+    width: 45%;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 52px 91px 52px 107px;
+    background-color: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(25px);
   }
 }

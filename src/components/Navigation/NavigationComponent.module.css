@@ -1,5 +1,12 @@
-.test {
-  list-style: none;
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 38px;
+  justify-content: center;
+  padding: 0;
+}
+.list {
+  margin-right: 10px;
 }
 .poppinsNormalBlack18px {
   color: var(--black);
@@ -26,11 +33,43 @@
   letter-spacing: 0;
   line-height: normal;
 }
-.exclude{
-    height: 18px;
-    width: 18px;
-    margin-right: 20px;
+.exclude {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
 }
 .activeLink {
-   font-style: bold;
+  font-style: bold;
+}
+
+@media screen and (min-width: 768px) {
+  ul {
+    flex-direction: column;
+    padding-left: 35px;
+    gap: 0;
+  }
+
+  .list {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .navTitle {
+    display: flex;
+    align-items: center;
+  }
+
+  .exclude {
+    margin-right: 23px;
+  }
+
+  a {
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  ul {
+    padding-left: 19px;
+  }
 }

@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css?family=Poppins:400,788");
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,788');
 @font-face {
-  font-family: "Circe-Regular";
+  font-family: 'Circe-Regular';
   font-style: normal;
   font-weight: 400;
-  src: url("https://fonts.animaapp.com/Circe-Regular") format("truetype");
+  src: url('https://fonts.animaapp.com/Circe-Regular') format('truetype');
 }
-h1{margin: 0;}
+h1 {
+  margin: 0;
+}
 
 .valignTextMiddle {
   display: flex;
@@ -14,12 +16,12 @@ h1{margin: 0;}
 }
 
 .group11 {
-  align-items: flex-start;
   border-radius: 30px;
+  margin: 0 auto;
   display: flex;
-  height: 88px;
-  min-width: 399px;
-  margin-bottom: 32px;
+  justify-content: center;
+  margin: 0 20px 31px 20px;
+  min-width: 280px;
 }
 
 .overlapGroup {
@@ -31,7 +33,9 @@ h1{margin: 0;}
   gap: 12px;
   min-height: 88px;
   padding: 7px 40px;
-  width: 395px;
+  width: 100%;
+
+  /* max-width: 395px; */
 }
 
 .yourBalance {
@@ -70,4 +74,11 @@ h1{margin: 0;}
   font-size: var(--font-size-x1);
   font-weight: 788;
   font-style: normal;
+}
+
+@media screen and (min-width: 768px) {
+  .group11 {
+    justify-content: flex-start;
+    max-width: 395px;
+  }
 }
