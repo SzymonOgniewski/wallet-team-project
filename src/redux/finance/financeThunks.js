@@ -8,7 +8,7 @@ export const fetchBalance = createAsyncThunk(
       const response = await axios.get(
         'https://wallet-dybb.onrender.com/api/users/current'
       ); 
-      return response.data.balance; // Assuming the response contains the balance as `balance` property
+      return response.data.balance; 
     } catch (error) {      
       throw new Error('Failed to fetch balance');
     }

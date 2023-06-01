@@ -19,6 +19,7 @@ const initialTransactionsState = {
       category: 'Other',
       comment: 'Gift for your wife',
       amount: 3000.1,
+      id: "fdsfsdfs"
     },
   ],
   isLoading: false,
