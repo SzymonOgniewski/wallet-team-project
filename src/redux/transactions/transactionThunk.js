@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://wallet.goit.ua/';
+axios.defaults.baseURL = 'https://wallet-dybb.onrender.com/';
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
   async (_, thunkAPI) => {
