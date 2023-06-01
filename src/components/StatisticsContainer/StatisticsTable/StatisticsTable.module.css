@@ -1,0 +1,148 @@
+/* p {
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (min-width: 320px) {
+  .tr {
+    width: 280px;
+  }
+
+  .th {
+    background-color: #ffffff;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .td {
+    border-bottom: 1px solid #dcdcdf;
+    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
+    font-weight: 400;
+    font-size: 15px;
+    padding: 14px 0 14px 0;
+  }
+
+  .tableWrapper {
+    background-color: transparent;
+  }
+
+  .transactionHistory {
+    color: rgb(8, 8, 8);
+    width: 280px;
+    border-collapse: collapse;
+    margin: auto auto;
+    background-color: transparent;
+  }
+
+  .categoryTitleWrapper {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .categoryTitle {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .sumTitleWrapper {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .sumTitle {
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .categoryTh {
+    border-radius: 30px 0 0 30px;
+  }
+
+  .sumTh {
+    border-radius: 0 30px 30px 0;
+  }
+
+  .statisticColors {
+    margin-left: 20px;
+    width: 24px;
+    height: 24px;
+  }
+
+  .statisticWrappers {
+    display: flex;
+    align-items: center;
+  }
+
+  .categoryText {
+    margin-left: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .incomeText {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #000000;
+  }
+
+  .categoryWrappers {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .categoryValue {
+    margin-right: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #000000;
+  }
+
+  .valueWrapp {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .expensesValue {
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #ff6596;
+  }
+
+  .incomeValue {
+    margin-right: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #24cca7;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .transactionHistory {
+    width: 336px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .transactionHistory {
+    width: 395px;
+  }
+} */

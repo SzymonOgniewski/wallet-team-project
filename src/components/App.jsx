@@ -9,7 +9,7 @@ import { lazy } from 'react';
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 
 const Home = () => <h1>Home Page</h1>;
-const Diagram = () => <h1>Diagram Page</h1>;
+const Diagram = () => <h1>Statictic Page</h1>;
 const Currency = () => <CurrencyComponent />;
 
 export const App = () => {
