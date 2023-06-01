@@ -22,9 +22,19 @@ const financeSlice = createSlice({
     },
   },
   extraReducers: builder => {
-    builder.addCase(fetchBalance.fulfilled, (state, action) => {
-      state.balance = action.payload;
-    });
+    builder
+      .addCase(fetchBalance.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchBalance.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.balance = action.payload;
+      })
+      .addCase(fetchBalance.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
