@@ -35,7 +35,7 @@ const Currency = () => (
 
 export const App = () => {
   return (
-    <Router>
+    <Router basename="/wallet-team-project">
       <div>
         <Header />
         <Routes>
