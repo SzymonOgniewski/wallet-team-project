@@ -58,6 +58,7 @@ h1 {
   font-family: var(--font-family-circe-regular);
   font-weight: 400;
   font-style: normal;
+  text-transform: uppercase;
 }
 
 .poppinsNormalBlack30px {
