@@ -34,26 +34,7 @@ const StatisticContainer = () => {
     fetchData();
   }, [year, month]);
 
-  const egDataFromBackend = {
-    status: 'string',
-    code: 'string',
-    data: {
-      response: {
-        categoriesSummary: [
-          {
-            name: 'string',
-            type: 'string',
-            total: 0,
-          },
-        ],
-        incomeSummary: 0,
-        expenseSummary: 0,
-        periodTotal: 0,
-        year: 'string',
-        month: 'string',
-      },
-    },
-  };
+  ?
 
   //   useEffect(() => {
   //     if (month !== '' && year !== '') {
