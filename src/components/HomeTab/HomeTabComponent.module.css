@@ -9,6 +9,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 306px;
+  max-width: 715px;
 }
 
 .navHeight {
@@ -18,8 +19,7 @@
   background-color: var(--white);
   border-radius: 30px;
   display: flex;
-
-  min-width: 715px;
+  max-width: 715px;
   padding: 15px 20px;
 }
 
@@ -245,4 +245,51 @@
 
 .plus {
   margin-left: 63px;
+}
+
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  /* CSS rules for the specified resolution range */
+  .group306 {
+    margin-left: 0;
+    max-width: 700px;
+  }
+  .navbarLinkSum {  
+  margin-left: 15px; 
+}
+  .navbarLinkContainer {   
+    padding: 10px;
+  }
+}
+
+@media (min-width: 300px) {
+  /* CSS rules for the specified resolution range */
+  .group306 {
+    margin-left: 0;
+    max-width: 280px;
+  }
+  .navbarLinkSum {  
+  margin-left: 2px; 
+}
+  .navbarLinkContainer {   
+    padding: 10px;
+  }
+  .navbarLinkType {
+  
+  margin-left: 2px;
+
+}
+
+.navbarLinkComment {
+
+  margin-left: 2px;
+}
+
+.navbarLinkCategory {
+  
+  margin-left: 2px;
+  
+}
+
+
 }
