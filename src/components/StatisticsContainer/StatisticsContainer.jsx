@@ -9,67 +9,65 @@ import StatisticsTable from './StatisticsTable/StatisticsTable';
 import css from './StatisticsContainer.module.css';
 
 const StatisticContainer = () => {
-//   const dispatch = useDispatch();
-  
-  
-   const [data, setData] = useState(null);
-   const [month, setMonth] = useState(1); //Daty z zrobionego datepickera, koniecznie numbery
-   const [year, setYear] = useState(2000);
+  //   const dispatch = useDispatch();
 
-   useEffect(() => {
-     const fetchData = async () => {
-       try {
-         if (!year) {return}
-         const response = await axios.get(
-           `https://wallet-dybb.onrender.com/api/transactions-summary?year=${year}&month=${month}`
-         );
-         setData(response.data.data.response);
-       } catch (error) {
-         // Handle error case
-         console.error('Error:', error);
-       }
-     };
+  const [data, setData] = useState(null);
+  const [month, setMonth] = useState(1); //Daty z zrobionego datepickera, koniecznie numbery
+  const [year, setYear] = useState(2000);
 
-     fetchData();
-   }, [year, month]);
-  
-  const egDataFromBackend ={
-  "status": "string",
-  "code": "string",
-  "data": {
-    "response": {
-      "categoriesSummary": [
-        {
-          "name": "string",
-          "type": "string",
-          "total": 0
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (!year) {
+          return;
         }
-      ],
-      "incomeSummary": 0,
-      "expenseSummary": 0,
-      "periodTotal": 0,
-      "year": "string",
-      "month": "string"
-    }
-  }
-}
+        const response = await axios.get(
+          `https://wallet-dybb.onrender.com/api/transactions-summary?year=${year}&month=${month}`
+        );
+        setData(response.data.data.response);
+      } catch (error) {
+        // Handle error case
+        console.error('Error:', error);
+      }
+    };
 
- 
-//   useEffect(() => {
-//     if (month !== '' && year !== '') {
-//       const params = {
-//         month,
-//         year,
-//       };
-//       dispatch();
-//     }
-//   }, [month, year]);
+    fetchData();
+  }, [year, month]);
 
-//   useEffect(() => {
-//     dispatch();
-//   }, [dispatch]);
-  
-  
+  const egDataFromBackend = {
+    status: 'string',
+    code: 'string',
+    data: {
+      response: {
+        categoriesSummary: [
+          {
+            name: 'string',
+            type: 'string',
+            total: 0,
+          },
+        ],
+        incomeSummary: 0,
+        expenseSummary: 0,
+        periodTotal: 0,
+        year: 'string',
+        month: 'string',
+      },
+    },
+  };
+
+  //   useEffect(() => {
+  //     if (month !== '' && year !== '') {
+  //       const params = {
+  //         month,
+  //         year,
+  //       };
+  //       dispatch();
+  //     }
+  //   }, [month, year]);
+
+  //   useEffect(() => {
+  //     dispatch();
+  //   }, [dispatch]);
 
   const MakeStatistic = (categories, details) => {
     if (categories && details) {
