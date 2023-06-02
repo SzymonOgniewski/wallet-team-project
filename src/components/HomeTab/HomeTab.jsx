@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './HomeTabComponent.module.css';
 import edit from './edit.png';
 
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import {
+  fetchTransactions,  
+  deleteSelectedTransaction,
+} from '../../redux//transactions/transactionThunk';
 
 const HomeTab = () => {
-  const data = useSelector(state => state.finance.data);
+  const data = useSelector(state => state.transactions.items);
+  const dispatch = useDispatch();
+
+  const handleDelete = transactionId => {
+    dispatch(deleteSelectedTransaction(transactionId));
+  };
+
+  useEffect(() => {
+    dispatch(fetchTransactions());
+  }, [dispatch]);
 
   return (
     <div className={styles.group306}>
@@ -86,8 +99,8 @@ const HomeTab = () => {
                     .replace(/,/g, '\u00A0')}
                 </span>
               </div>
-              <img className={styles.edit} src={edit} alt="Vector 18" />
-              <div className={styles.btn}>
+              <img className={styles.edit} onClick={() => console.log("modal edit open")} src={edit} alt="Vector 18" />
+              <div className={styles.btn} onClick={() => handleDelete(item.id)}>
                 <div
                   className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
                 >

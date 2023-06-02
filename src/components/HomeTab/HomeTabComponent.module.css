@@ -9,6 +9,7 @@
   flex-direction: column;
   width: 100%;
   min-height: 306px;
+  max-width: 715px;
 }
 
 .navHeight {
@@ -22,6 +23,7 @@
   border-radius: 30px;
   display: flex;
   min-width: 715px;
+  max-width: 715px;>
   padding: 15px 20px;
 }
 
@@ -271,6 +273,7 @@
   margin-left: 63px;
 }
 
+
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .circeRegularNormalBlack16px {
     width: 14%;
@@ -293,4 +296,51 @@
   .btn {
     width: 14%;
   }
+
+
+@media (min-width: 768px) and (max-width: 1279px) {
+  /* CSS rules for the specified resolution range */
+  .group306 {
+    margin-left: 0;
+    max-width: 700px;
+  }
+  .navbarLinkSum {  
+  margin-left: 15px; 
+}
+  .navbarLinkContainer {   
+    padding: 10px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* CSS rules for the specified resolution range */
+  .group306 {
+    margin-left: 0;
+    max-width: 280px;
+  }
+  .navbarLinkSum {  
+  margin-left: 2px; 
+}
+  .navbarLinkContainer {   
+    padding: 10px;
+  }
+  .navbarLinkType {
+  
+  margin-left: 2px;
+
+}
+
+.navbarLinkComment {
+
+  margin-left: 2px;
+}
+
+.navbarLinkCategory {
+  
+  margin-left: 2px;
+  
+}
+
+
+
 }

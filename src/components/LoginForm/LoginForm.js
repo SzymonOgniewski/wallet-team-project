@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { logIn } from '../../redux/auth/AuthThunk';
 import { selectIsLoggedIn } from '../../redux/auth/AuthSelectors'; // Update the import path
 import css from './LoginForm.module.css';
@@ -12,6 +13,7 @@ import password from '../../images/LoginForm/password.svg';
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const isLoggedIn = useSelector(selectIsLoggedIn); // Use the selector from AuthSlice
 
   const formik = useFormik({
@@ -28,8 +30,9 @@ export const LoginForm = () => {
         .max(12, 'Password must be at most 12 characters')
         .required('Password is required'),
     }),
-    onSubmit: values => {
-      dispatch(logIn(values));
+    onSubmit: ({ email, password }) => {     
+      dispatch(logIn({ email, password }));
+      navigate('/home');
     },
   });
 
