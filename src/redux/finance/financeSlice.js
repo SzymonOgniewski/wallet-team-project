@@ -1,163 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchBalance } from './financeThunks';
 
 const initialState = {
-  totalBalance: 240000.1,
-  data: [
-    {
-      transactionDate: '04.01.19',
-      type: 'income',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000.1,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: 'income',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },
-    {
-      transactionDate: '04.01.19',
-      type: '-',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000,
-    },    
-  ],
+  balance: 200,
+  isLoading: false,
+  error: null,
 };
 
 const financeSlice = createSlice({
   name: 'finance',
   initialState,
   reducers: {
-    setTotalBalance: (state, action) => {
-      state.totalBalance = action.payload;
+    setBalance: (state, action) => {
+      state.balance = action.payload;
     },
-    setData: (state, action) => {
-      state.data = action.payload;
+    setLoading: (state, action) => {
+      state.isLoading = action.payload;
     },
+    setError: (state, action) => {
+      state.error = action.payload;
+    },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchBalance.pending, state => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(fetchBalance.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.balance = action.payload;
+      })
+      .addCase(fetchBalance.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
-export const { setTotalBalance, setData } = financeSlice.actions;
+export const { setBalance, setLoading, setError } = financeSlice.actions;
 export default financeSlice.reducer;

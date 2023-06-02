@@ -1,11 +1,13 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { transactionsReducer } from './transactions/transactionSlice.js';
-import { authReducer } from './auth/AuthSlice';
-import { globalReducer } from './data/globalSlice';
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
 import { persistStore } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import persistReducer from 'redux-persist/es/persistReducer';
+
+import { transactionsReducer } from './transactions/transactionSlice.js';
+import { authReducer } from './auth/AuthSlice';
+import { globalReducer } from './data/globalSlice';
 import financeReducer from './finance/financeSlice';
+
 import {
   FLUSH,
   PAUSE,
@@ -31,23 +33,23 @@ const authPersistConfig = {
   whitelist: ['token', 'user'],
 };
 
-export const Store = configureStore({
-  reducer: {
-    transactions: persistReducer(
-      transactionsPersistConfig,
-      transactionsReducer
-    ),
-    auth: persistReducer(authPersistConfig, authReducer),
-    global: globalReducer,
-    finance: financeReducer,
-  },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      thunk: { extraArgument: myApi },
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+const rootReducer = {
+  transactions: persistReducer(transactionsPersistConfig, transactionsReducer),
+  auth: persistReducer(authPersistConfig, authReducer),
+  global: globalReducer,
+  finance: financeReducer,
+};
+
+const Store = configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware({
+    thunk: { extraArgument: myApi },
+    serializableCheck: {
+      ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+    },
+  }),
 });
 
-export const persistor = persistStore(Store);
+const persistor = persistStore(Store);
+
+export { Store, persistor };
