@@ -54,7 +54,7 @@ export const Diagram = () => (
                 <TotalBalanceComponent />
                 <CurrencyComponent />
               </div>
-              <div>
+              <div className={styles.rightBlock}>
                 <StatisticContainer />
               </div>
             </div>

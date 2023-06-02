@@ -34,7 +34,6 @@ const StatisticContainer = () => {
     fetchData();
   }, [year, month]);
 
-  ?
 
   //   useEffect(() => {
   //     if (month !== '' && year !== '') {
@@ -70,8 +69,10 @@ const StatisticContainer = () => {
 
   return (
     <div className={css.container}>
+      <div className={css.diagramContainer}>
       <h1>Statistics</h1>
       <ChartDiagram statistic={MakeStatistic()} />
+      </div>
       <div className={css.tableContainer}>
         <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
         <StatisticsTable statistic={data} />
