@@ -19,11 +19,11 @@ function CurrencyComponent() {
           setCurrencyData(JSON.parse(storedResponse));
         } else {
           const usdResponse = await fetch(
-            'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
+            'https://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
           );
 
           const eurResponse = await fetch(
-            'http://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
+            'https://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
           );
 
           if (usdResponse.ok && eurResponse.ok) {
