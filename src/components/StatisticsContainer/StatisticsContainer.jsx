@@ -34,26 +34,26 @@ const StatisticContainer = () => {
     fetchData();
   }, [year, month]);
 
-  const egDataFromBackend = {
-    status: 'string',
-    code: 'string',
-    data: {
-      response: {
-        categoriesSummary: [
-          {
-            name: 'string',
-            type: 'string',
-            total: 0,
-          },
-        ],
-        incomeSummary: 0,
-        expenseSummary: 0,
-        periodTotal: 0,
-        year: 'string',
-        month: 'string',
-      },
-    },
-  };
+  // const egDataFromBackend = {
+  //   status: 'string',
+  //   code: 'string',
+  //   data: {
+  //     response: {
+  //       categoriesSummary: [
+  //         {
+  //           name: 'string',
+  //           type: 'string',
+  //           total: 0,
+  //         },
+  //       ],
+  //       incomeSummary: 0,
+  //       expenseSummary: 0,
+  //       periodTotal: 0,
+  //       year: 'string',
+  //       month: 'string',
+  //     },
+  //   },
+  // };
 
   //   useEffect(() => {
   //     if (month !== '' && year !== '') {
@@ -89,8 +89,10 @@ const StatisticContainer = () => {
 
   return (
     <div className={css.container}>
+      <div className={css.diagramContainer}>
       <h1>Statistics</h1>
       <ChartDiagram statistic={MakeStatistic()} />
+      </div>
       <div className={css.tableContainer}>
         <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
         <StatisticsTable statistic={data} />
