@@ -1,15 +1,22 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchBalance } from '../../redux/finance/financeThunks';
 import styles from './BalanceComponent.module.css';
 
 const TotalBalanceComponent = () => {
-  const totalBalance = useSelector(state => state.finance.totalBalance);
+  const dispatch = useDispatch();
+  const totalBalance = useSelector(state => state.finance.balance);
+  console.log(totalBalance)
   const formattedBalance = totalBalance
     .toLocaleString('en-US', {
       minimumFractionDigits: 2,
       maximumFractionDigits: 2,
     })
-    .replace(/,/g, '\u00A0'); // Replace commas with non-breaking spaces
+    .replace(/,/g, '\u00A0');
+
+  useEffect(() => {
+    dispatch(fetchBalance());
+  }, [dispatch]);
 
   return (
     <div className={styles.group11}>

@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+import Media from 'react-media';
 import styles from './NavigationComponent.module.css';
-import excludeImage from './exclude.png';
+import excludeImage1 from './exclude1.png';
 import excludeImage2 from './exclude2.png';
 import excludeImage3 from './exclude3.png';
 import excludeImage4 from './exclude4.png';
@@ -13,7 +14,7 @@ const Navigation = () => {
   return (
     <nav>
       <ul>
-        <li className={styles.test}>
+        <li className={styles.list}>
           <NavLink
             to="/home"
             className={`${styles.poppinsNormalBlack18px} ${
@@ -31,22 +32,27 @@ const Navigation = () => {
                   : `${styles.poppinsNormalBlack18px}`
               }`}
             >
-              <span>
+              <span className={styles.navTitle}>
                 <img
                   className={styles.exclude}
                   src={` ${
                     location.pathname === '/home'
-                      ? `${excludeImage}`
-                      : `${excludeImage4}`
+                      ? `${excludeImage1}`
+                      : `${excludeImage2}`
                   }`}
                   alt=""
                 />
-                <span className="poppins-bold-black-18px">Home</span>
+                <Media
+                  query="(min-width: 768px)"
+                  render={() => (
+                    <span className="poppins-bold-black-18px">Home</span>
+                  )}
+                />
               </span>
             </div>
           </NavLink>
         </li>
-        <li>
+        <li className={styles.list}>
           <NavLink
             to="/diagram"
             className={`${styles.poppinsNormalBlack18px} ${
@@ -60,50 +66,61 @@ const Navigation = () => {
                   : `${styles.poppinsNormalBlack18px}`
               }`}
             >
-              <span>
+              <span className={styles.navTitle}>
                 <img
                   className={styles.exclude}
                   src={` ${
                     location.pathname === '/diagram'
                       ? `${excludeImage3}`
-                      : `${excludeImage2}`
+                      : `${excludeImage4}`
                   }`}
                   alt=""
                 />
-                <span className="poppins-normal-black-18px">Statistics</span>
+                <Media
+                  query="(min-width: 768px)"
+                  render={() => (
+                    <span className="poppins-normal-black-18px">
+                      Statistics
+                    </span>
+                  )}
+                />
               </span>
             </div>
           </NavLink>
         </li>
-        <li>
-          <NavLink
-            to="/currency"
-            className={`${styles.poppinsNormalBlack18px} ${
-              location.pathname === '/currency' ? styles.activeLink : ''
-            }`}
-          >
-            <div
-              className={` ${
-                location.pathname === '/currency'
-                  ? `${styles.poppinsBoldBlack18px}`
-                  : `${styles.poppinsNormalBlack18px}`
-              }`}
-            >
-              <span>
-                <img
-                  className={styles.exclude}
-                  src={` ${
+        <Media
+          query="(max-width: 767px)"
+          render={() => (
+            <li className={styles.list}>
+              <NavLink
+                to="/currency"
+                className={`${styles.poppinsNormalBlack18px} ${
+                  location.pathname === '/currency' ? styles.activeLink : ''
+                }`}
+              >
+                <div
+                  className={` ${
                     location.pathname === '/currency'
-                      ? `${excludeImage5}`
-                      : `${excludeImage6}`
+                      ? `${styles.poppinsBoldBlack18px}`
+                      : `${styles.poppinsNormalBlack18px}`
                   }`}
-                  alt=""
-                />
-                <span className="poppins-normal-black-18px">Currency</span>
-              </span>
-            </div>
-          </NavLink>
-        </li>
+                >
+                  <span>
+                    <img
+                      className={styles.exclude}
+                      src={` ${
+                        location.pathname === '/currency'
+                          ? `${excludeImage5}`
+                          : `${excludeImage6}`
+                      }`}
+                      alt=""
+                    />
+                  </span>
+                </div>
+              </NavLink>
+            </li>
+          )}
+        />
       </ul>
     </nav>
   );

@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
+axios.defaults.baseURL = 'https://wallet-dybb.onrender.com/';
 
 // Utility to add JWT
 const setAuthHeader = token => {
@@ -21,15 +21,14 @@ const clearAuthHeader = () => {
  */
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, thunkAPI) => {
+  async (credentials, {rejectWithValue}) => {
     try {
-      const res = await axios.post('/users/signup', credentials);
-      // After successful registration, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+      const {data} = await axios.post('/api/users/sign-up', credentials);
+      setAuthHeader(data.token);
       toast.success('Registration is successful!');
-      return res.data;
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(toast.error('Email is already in use'));;
+      return rejectWithValue(toast.error('Email is already in use'));;
     }
   }
 );
@@ -41,13 +40,14 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
-    try {
-      const res = await axios.post('/users/login', credentials);
-      // After successful login, add the token to the HTTP header
-      setAuthHeader(res.data.token);
+    try {     
+      console.log(credentials)
+      const res = await axios.post('/api/users/sign-in', credentials);     
+      setAuthHeader(res.data.token);     
       return res.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log(error);
+      return thunkAPI.rejectWithValue(toast.error(error.message));
     }
   }
 );
