@@ -90,7 +90,7 @@ const StatisticContainer = () => {
   return (
     <div className={css.container}>
       <h1>Statistics</h1>
-      {/* <ChartDiagram statistic={MakeStatistic()} /> */}
+      <ChartDiagram statistic={MakeStatistic()} />
       <div className={css.tableContainer}>
         <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
         <StatisticsTable statistic={data} />

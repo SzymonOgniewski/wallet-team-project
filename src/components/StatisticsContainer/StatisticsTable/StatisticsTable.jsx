@@ -1,25 +1,26 @@
-import { useSelector } from 'react-redux';
-import {
-  getDetailsIncome,
-  getDetailsExpense,
-} from 'redux/transactions/transactionSelectors';
-
 import css from './StatisticsTable.module.css';
-import { red } from '@mui/material/colors';
+//import { red } from '@mui/material/colors';
 
-const StatisticsTable = ({ statistic }) => {
-  const income = statistic.incomeSummary;
-  const expenses = statistic.expenseSummary;
+const StatisticsTable = () => {
+  //w konsoli przeglądarki wywala błąd
+  //const income = statistic.incomeSummary;
+  //const expenses = statistic.expenseSummary;
 
       
-  const tableForMap = statistic.categoriesSummary
+  //const tableForMap = statistic.categoriesSummary
 
   //Mock tabela widzać że działa i ładnie się wyświetla
   const tab = [
-    { color: 'red', title: 'car', value: 157 },
-    { color: 'green', title: 'gift', value: 3570 },
-    { color: 'yellow', title: 'bonus', value: 57 },
-    { color: 'blue', title: 'other', value: 2357 },
+    { title: 'Main expenses', value: 8700, color: '#FED057' },
+    { title: 'Products', value: 3800, color: '#FFD8D0' },
+    { title: 'Car', value: 1500, color: '#FD9498' },
+    { title: 'Self care', value: 800, color: '#C5BAFF' },
+    { title: 'Child care', value: 2200, color: '#6E78E8' },
+    { title: 'Household products', value: 300, color: '#4A56E2' },
+    { title: 'Education', value: 3400, color: '#81E1FF' },
+    { title: 'Leisure', value: 123, color: '#24CCA7' },
+    { title: 'Other expenses', value: 610, color: '#00AD84' },
+
   ];
 
   return (
@@ -67,7 +68,7 @@ const StatisticsTable = ({ statistic }) => {
             </td>
             <td className={css.td}>
               <div className={css.valueWrapp}>
-                <p className={css.expensesValue}>{expenses}</p>
+                <p className={css.expensesValue}>expenses</p>
               </div>
             </td>
           </tr>
@@ -78,7 +79,7 @@ const StatisticsTable = ({ statistic }) => {
             </td>
             <td className={css.td}>
               <div className={css.valueWrapp}>
-                <p className={css.incomeValue}>{income}</p>
+                <p className={css.incomeValue}>income</p>
               </div>
             </td>
           </tr>

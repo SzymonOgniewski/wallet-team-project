@@ -6,6 +6,7 @@
   margin-bottom: 32px;
 }
 
+
 .sumExpensesIntoDiagram {
   position: absolute;
   left: 140px;
@@ -13,11 +14,13 @@
   top: 135px;
 }
 
+
 @media screen and (min-width: 768px) {
   .diagram {
     width: 336px;
     height: 336px;
   }
+
 
   .sumExpensesIntoDiagram {
     top: 160px;
@@ -25,11 +28,13 @@
   }
 }
 
+
 @media screen and (min-width: 1280px) {
   .diagram {
     width: 288px;
     height: 288px;
   }
+
 
   .sumExpensesIntoDiagram {
     top: 132px;
