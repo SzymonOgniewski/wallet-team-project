@@ -23,7 +23,7 @@
   border-radius: 30px;
   display: flex;
   min-width: 715px;
-  max-width: 715px;>
+  max-width: 715px;
   padding: 15px 20px;
 }
 
@@ -296,7 +296,7 @@
   .btn {
     width: 14%;
   }
-
+}
 
 @media (min-width: 768px) and (max-width: 1279px) {
   /* CSS rules for the specified resolution range */
