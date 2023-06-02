@@ -127,6 +127,6 @@
 @media screen and (min-width: 1280px) {
   .group {
     justify-content: flex-start;
-    max-width: 395px;
+    width: 90%;
   }
 }

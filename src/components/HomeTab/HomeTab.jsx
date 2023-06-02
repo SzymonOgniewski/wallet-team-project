@@ -40,6 +40,10 @@ const HomeTab = () => {
         <div className={styles.navbarLinkSum}>
           <span className={styles.circeBoldBlack18px}>Sum</span>
         </div>
+
+        <div className={styles.navbarLinkDelete}>
+          <span className={styles.circeBoldBlack18pxDelete}>Delete</span>
+        </div>
       </div>
       <div className={styles.navHeight}>
         {data.length === 0 ? (
