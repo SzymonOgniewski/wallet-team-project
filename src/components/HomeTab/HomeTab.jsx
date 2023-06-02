@@ -27,6 +27,10 @@ const HomeTab = () => {
         <div className={styles.navbarLinkSum}>
           <span className={styles.circeBoldBlack18px}>Sum</span>
         </div>
+
+        <div className={styles.navbarLinkDelete}>
+          <span className={styles.circeBoldBlack18pxDelete}>Delete</span>
+        </div>
       </div>
       <div className={styles.navHeight}>
         {data.length === 0 ? (
@@ -74,10 +78,12 @@ const HomeTab = () => {
                       : `${styles.circeBoldStrawberry16px}`
                   }
                 >
-                  {item.amount.toLocaleString('en-US', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  }).replace(/,/g, '\u00A0')}
+                  {item.amount
+                    .toLocaleString('en-US', {
+                      minimumFractionDigits: 2,
+                      maximumFractionDigits: 2,
+                    })
+                    .replace(/,/g, '\u00A0')}
                 </span>
               </div>
               <img className={styles.edit} src={edit} alt="Vector 18" />

@@ -13,12 +13,14 @@
 
 .navHeight {
   overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 .navbarLinkContainer {
   background-color: var(--white);
   border-radius: 30px;
   display: flex;
-
   min-width: 715px;
   padding: 15px 20px;
 }
@@ -63,8 +65,19 @@
   text-align: right;
 }
 
+.navbarLinkDelete {
+  letter-spacing: 0px;
+  line-height: normal;
+  margin-left: 115px;
+  min-height: 27px;
+  min-width: 34px;
+  text-align: right;
+  padding-right: 55px;
+}
+
 .navbar1 {
-  align-items: flex-start;
+  flex-grow: 1;
+  align-items: center;
   display: flex;
   height: 24px;
   padding-left: 20px;
@@ -152,6 +165,17 @@
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
+  flex-grow: 1;
+}
+
+.circeBoldBlack18pxDelete {
+  color: var(--black);
+  font-family: var(--font-family-circe-bold);
+  font-size: var(--font-size-1);
+  font-weight: 700;
+  font-style: normal;
+  flex-grow: 1;
+  color: white;
 }
 
 .circeBoldStrawberry16px {
@@ -245,4 +269,28 @@
 
 .plus {
   margin-left: 63px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .circeRegularNormalBlack16px {
+    width: 14%;
+  }
+
+  .navbarLinkPlace,
+  .navbarLinkSum,
+  .navbarLinkComment,
+  .navbarLinkType,
+  .navbarLinkCategory {
+    width: 20%;
+  }
+
+  .navbarLinkDate1,
+  .navbarLinkText1,
+  .navbarLinkOther,
+  .navbarLinkGiftForYourWife,
+  .navbarLinkPhone,
+  .vector1,
+  .btn {
+    width: 14%;
+  }
 }
