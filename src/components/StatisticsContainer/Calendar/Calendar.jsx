@@ -25,12 +25,14 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     if (choosenOne < 10) {
       choosenOne = '0' + choosenOne;
     }
+    console.log(choosenOne.toString());
     setMonthAmount(choosenOne.toString());
   };
 
   const onYearChange = e => {
     const choosenOne = e._d.getFullYear().toString();
     setYearAmount(choosenOne);
+    console.log(choosenOne.toString());
   };
 
   const isValidData = data => {

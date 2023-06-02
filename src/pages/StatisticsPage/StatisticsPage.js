@@ -3,6 +3,7 @@ import Header from 'components/Header/Header';
 import Navigation from 'components/Navigation/navigation';
 import TotalBalanceComponent from 'components/Balance/Balance';
 import CurrencyComponent from 'components/Currency/Currency';
+import StatisticContainer from 'components/StatisticsContainer/StatisticsContainer';
 
 import styles from './StatisticsPage.module.css';
 
@@ -14,7 +15,7 @@ export const Diagram = () => (
         <>
           <Header />
           <Navigation />
-          <h1>Diagram Page</h1>
+          <StatisticContainer />
         </>
       )}
     />
@@ -35,7 +36,7 @@ export const Diagram = () => (
               </div>
             </div>
             <div className={styles.homeTab}>
-              <h1>Diagram Page</h1>
+              <StatisticContainer />
             </div>
           </>
         )}
@@ -54,7 +55,7 @@ export const Diagram = () => (
                 <CurrencyComponent />
               </div>
               <div>
-                <h1>Diagram Page</h1>
+                <StatisticContainer />
               </div>
             </div>
           </>

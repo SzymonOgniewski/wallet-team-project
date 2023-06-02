@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 //import { useDispatch, useSelector } from 'react-redux';
 
-
+import axios from 'axios';
 import ChartDiagram from './ChartDiagram/ChartDiagram';
 import Calendar from './Calendar/Calendar';
 import StatisticsTable from './StatisticsTable/StatisticsTable';
@@ -9,10 +9,52 @@ import StatisticsTable from './StatisticsTable/StatisticsTable';
 import css from './StatisticsContainer.module.css';
 
 const StatisticContainer = () => {
-//   const dispatch = useDispatch();  
+//   const dispatch = useDispatch();
+  
+  
+   const [data, setData] = useState(null);
+   const [month, setMonth] = useState(1); //Daty z zrobionego datepickera, koniecznie numbery
+   const [year, setYear] = useState(2000);
 
-  const [month, setMonth] = useState('');
-  const [year, setYear] = useState('');
+   useEffect(() => {
+     const fetchData = async () => {
+       try {
+         if (!year) {return}
+         const response = await axios.get(
+           `https://wallet-dybb.onrender.com/api/transactions-summary?year=${year}&month=${month}`
+         );
+         setData(response.data.data.response);
+       } catch (error) {
+         // Handle error case
+         console.error('Error:', error);
+       }
+     };
+
+     fetchData();
+   }, [year, month]);
+  
+  const egDataFromBackend ={
+  "status": "string",
+  "code": "string",
+  "data": {
+    "response": {
+      "categoriesSummary": [
+        {
+          "name": "string",
+          "type": "string",
+          "total": 0
+        }
+      ],
+      "incomeSummary": 0,
+      "expenseSummary": 0,
+      "periodTotal": 0,
+      "year": "string",
+      "month": "string"
+    }
+  }
+}
+
+ 
 //   useEffect(() => {
 //     if (month !== '' && year !== '') {
 //       const params = {
@@ -26,6 +68,8 @@ const StatisticContainer = () => {
 //   useEffect(() => {
 //     dispatch();
 //   }, [dispatch]);
+  
+  
 
   const MakeStatistic = (categories, details) => {
     if (categories && details) {
@@ -47,10 +91,11 @@ const StatisticContainer = () => {
 
   return (
     <div className={css.container}>
-      <ChartDiagram statistic={MakeStatistic()} />
+      <h1>Statistics</h1>
+      {/* <ChartDiagram statistic={MakeStatistic()} /> */}
       <div className={css.tableContainer}>
         <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
-        <StatisticsTable statistic={MakeStatistic()} />
+        <StatisticsTable statistic={data} />
       </div>
     </div>
   );
