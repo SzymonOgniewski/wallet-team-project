@@ -2,11 +2,12 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchBalance } from '../../redux/finance/financeThunks';
 import styles from './BalanceComponent.module.css';
+import { refreshUser } from 'redux/auth/AuthThunk';
 
 const TotalBalanceComponent = () => {
   const dispatch = useDispatch();
   const totalBalance = useSelector(state => state.finance.balance);
-  console.log(totalBalance)
+  console.log(totalBalance);
   const formattedBalance = totalBalance
     .toLocaleString('en-US', {
       minimumFractionDigits: 2,
@@ -15,7 +16,8 @@ const TotalBalanceComponent = () => {
     .replace(/,/g, '\u00A0');
 
   useEffect(() => {
-    dispatch(fetchBalance());
+    dispatch(refreshUser());
+    // dispatch(fetchBalance());
   }, [dispatch]);
 
   return (

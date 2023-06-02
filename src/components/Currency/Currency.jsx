@@ -19,11 +19,11 @@ function CurrencyComponent() {
           setCurrencyData(JSON.parse(storedResponse));
         } else {
           const usdResponse = await fetch(
-            'http://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
+            'https://api.nbp.pl/api/exchangerates/rates/c/usd/today/'
           );
 
           const eurResponse = await fetch(
-            'http://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
+            'https://api.nbp.pl/api/exchangerates/rates/c/eur/today/'
           );
 
           if (usdResponse.ok && eurResponse.ok) {
@@ -65,7 +65,6 @@ function CurrencyComponent() {
     }
 
     return (
-   
       <div className={styles.group}>
         <div className={styles.overlapGroup}>
           <div
@@ -101,7 +100,7 @@ function CurrencyComponent() {
             </div>
           ))}
           <img className={styles.vector7} src={Vector7} alt="Vector 7" />
-       </div>
+        </div>
       </div>
     );
   }

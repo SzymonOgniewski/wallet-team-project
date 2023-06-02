@@ -4,12 +4,13 @@ import edit from './edit.png';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  fetchTransactions,  
+  fetchTransactions,
   deleteSelectedTransaction,
 } from '../../redux//transactions/transactionThunk';
 
 const HomeTab = () => {
-  const data = useSelector(state => state.transactions.items);
+  let data = useSelector(state => state.transactions.items.userTransactions);
+  if (!data) data = [];
   const dispatch = useDispatch();
 
   const handleDelete = transactionId => {
@@ -99,7 +100,12 @@ const HomeTab = () => {
                     .replace(/,/g, '\u00A0')}
                 </span>
               </div>
-              <img className={styles.edit} onClick={() => console.log("modal edit open")} src={edit} alt="Vector 18" />
+              <img
+                className={styles.edit}
+                onClick={() => console.log('modal edit open')}
+                src={edit}
+                alt="Vector 18"
+              />
               <div className={styles.btn} onClick={() => handleDelete(item.id)}>
                 <div
                   className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}

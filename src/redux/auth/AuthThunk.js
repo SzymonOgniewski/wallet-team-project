@@ -6,7 +6,7 @@ import 'react-toastify/dist/ReactToastify.css';
 axios.defaults.baseURL = 'https://wallet-dybb.onrender.com/';
 
 // Utility to add JWT
-const setAuthHeader = token => {
+export const setAuthHeader = token => {
   axios.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
@@ -21,14 +21,14 @@ const clearAuthHeader = () => {
  */
 export const register = createAsyncThunk(
   'auth/register',
-  async (credentials, {rejectWithValue}) => {
+  async (credentials, { rejectWithValue }) => {
     try {
-      const {data} = await axios.post('/api/users/sign-up', credentials);
+      const { data } = await axios.post('/api/users/sign-up', credentials);
       setAuthHeader(data.token);
       toast.success('Registration is successful!');
       return data;
     } catch (error) {
-      return rejectWithValue(toast.error('Email is already in use'));;
+      return rejectWithValue(toast.error('Email is already in use'));
     }
   }
 );
@@ -40,10 +40,9 @@ export const register = createAsyncThunk(
 export const logIn = createAsyncThunk(
   'auth/login',
   async (credentials, thunkAPI) => {
-    try {     
-      console.log(credentials)
-      const res = await axios.post('/api/users/sign-in', credentials);     
-      setAuthHeader(res.data.token);     
+    try {
+      const res = await axios.post('/api/users/sign-in', credentials);
+      setAuthHeader(res.data.token);
       return res.data;
     } catch (error) {
       console.log(error);
@@ -51,7 +50,6 @@ export const logIn = createAsyncThunk(
     }
   }
 );
-
 /*
  * POST @ /users/logout
  * headers: Authorization: Bearer token
@@ -76,7 +74,7 @@ export const refreshUser = createAsyncThunk(
     // Reading the token from the state via getState()
     const state = thunkAPI.getState();
     const persistedToken = state.auth.token;
-
+    console.log('persistedToken', persistedToken);
     if (persistedToken === null) {
       // If there is no token, exit without performing any request
       return thunkAPI.rejectWithValue('Unable to fetch user');
