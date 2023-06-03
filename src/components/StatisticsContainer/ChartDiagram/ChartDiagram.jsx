@@ -18,7 +18,7 @@ const ChartDiagram = ({ statistic }) => {
   const [data, setData] = useState({
     datasets: [
       {
-        data: [12, 19, 3, 5, 2, 3, 5, 4, 3],
+        data: [19, 12, 3, 5, 2, 3, 5, 4, 3],
         backgroundColor: [
           '#FED057',
           '#FFD8D0',
