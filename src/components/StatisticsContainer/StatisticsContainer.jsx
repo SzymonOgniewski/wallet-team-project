@@ -30,9 +30,9 @@ const StatisticContainer = () => {
         console.error('Error:', error);
       }
     };
-
     fetchData();
   }, [year, month]);
+
 
   const MakeStatistic = (categories, details) => {
     if (categories && details) {

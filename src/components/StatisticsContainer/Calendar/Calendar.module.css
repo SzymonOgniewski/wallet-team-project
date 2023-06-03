@@ -62,10 +62,11 @@
   }
 
   .wrapperMonth {
-    
+    cursor: pointer;
   }
 
   .wrapperYear {
     margin-left: 32px;
+    cursor: pointer;
   }
 }
