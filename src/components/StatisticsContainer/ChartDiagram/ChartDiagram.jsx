@@ -13,9 +13,9 @@ const ChartDiagram = ({ statistic }) => {
   const balance = useSelector(state => state.finance.balance);
 
   const optionsChart = { plugins: { tooltip: true } };
-  const [options, setOptionsChart] = useState(optionsChart);
+  const [options/*, setOptionsChart*/] = useState(optionsChart);
 
-  const [data, setData] = useState({
+  const [data/*, setData*/] = useState({
     datasets: [
       {
         data: [19, 12, 3, 5, 2, 3, 5, 4, 3],
