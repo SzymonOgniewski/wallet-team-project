@@ -2,24 +2,18 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-
 import css from './ChartDiagram.module.css';
 
-
 ChartJS.register(ArcElement, Tooltip, Legend);
-
 
 const ChartDiagram = ({ arrForRenderDonat }) => {
   const balance = useSelector(state => state.finance.balance);
 
-
   const optionsChart = { plugins: { tooltip: true } };
   const [options, setOptionsChart] = useState(optionsChart);
-
 
   const [data, setData] = useState({
     datasets: [
@@ -58,13 +52,11 @@ const ChartDiagram = ({ arrForRenderDonat }) => {
           '#BDBDBD',
         ],
 
-
         cutout: 90,
         hoverBorderWidth: 5,
       },
     ],
   });
-
 
   useEffect(() => {
     if (arrForRenderDonat) {
@@ -105,13 +97,11 @@ const ChartDiagram = ({ arrForRenderDonat }) => {
               '#BDBDBD',
             ],
 
-
             cutout: 90,
             hoverBorderWidth: 5,
           },
         ],
       };
-
 
       const newOptionsChart = { plugins: { tooltip: true } };
       setOptionsChart(newOptionsChart);
@@ -132,21 +122,24 @@ const ChartDiagram = ({ arrForRenderDonat }) => {
         labelTextColors: '#00AD84',
       };
 
-
       const newOptionsChart = { plugins: { tooltip: false } };
       setOptionsChart(newOptionsChart);
       setData(newData);
     }
   }, [arrForRenderDonat]);
 
-
   return (
     <div className={css.diagram}>
       <Doughnut data={data} options={options} />
-      <p className={css.sumExpensesIntoDiagram}>₴ {balance.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2,})}</p>
+      <p className={css.sumExpensesIntoDiagram}>
+        ₴{' '}
+        {balance.toLocaleString('en-US', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}
+      </p>
     </div>
   );
 };
-
 
 export default ChartDiagram;
