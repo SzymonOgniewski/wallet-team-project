@@ -14,7 +14,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 
 const ChartDiagram = ({ arrForRenderDonat }) => {
-  const balance = useSelector(state => state.auth.user.balance);
+  const balance = useSelector(state => state.finance.balance);
 
 
   const optionsChart = { plugins: { tooltip: true } };
@@ -143,7 +143,7 @@ const ChartDiagram = ({ arrForRenderDonat }) => {
   return (
     <div className={css.diagram}>
       <Doughnut data={data} options={options} />
-      <p className={css.sumExpensesIntoDiagram}>{balance}</p>
+      <p className={css.sumExpensesIntoDiagram}>₴ {balance.toLocaleString('en-US', {minimumFractionDigits: 2,maximumFractionDigits: 2,})}</p>
     </div>
   );
 };

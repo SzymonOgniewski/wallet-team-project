@@ -34,21 +34,6 @@ const StatisticContainer = () => {
     fetchData();
   }, [year, month]);
 
-
-  //   useEffect(() => {
-  //     if (month !== '' && year !== '') {
-  //       const params = {
-  //         month,
-  //         year,
-  //       };
-  //       dispatch();
-  //     }
-  //   }, [month, year]);
-
-  //   useEffect(() => {
-  //     dispatch();
-  //   }, [dispatch]);
-
   const MakeStatistic = (categories, details) => {
     if (categories && details) {
       const statistic = categories.map(category => {
