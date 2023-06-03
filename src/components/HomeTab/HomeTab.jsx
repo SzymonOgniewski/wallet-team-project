@@ -11,12 +11,13 @@ import {
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
   if (!data) data = [];
+  console.log(data);
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
   };
 
-  useEffect(() => {    
+  useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
 
@@ -40,7 +41,6 @@ const HomeTab = () => {
         <div className={styles.navbarLinkSum}>
           <span className={styles.circeBoldBlack18px}>Sum</span>
         </div>
-
         <div className={styles.navbarLinkDelete}>
           <span className={styles.circeBoldBlack18pxDelete}>Delete</span>
         </div>
@@ -49,8 +49,8 @@ const HomeTab = () => {
         {data.length === 0 ? (
           <div className={styles.noData}>No transactions found.</div>
         ) : (
-          data.map((item, index) => (
-            <div className={styles.navbar1} key={index}>
+          data.map(item => (
+            <div className={styles.navbar1} key={item._id}>
               <div
                 className={`${styles.navbarLinkDate1} ${styles.circeRegularNormalBlack16px}`}
               >
@@ -67,7 +67,9 @@ const HomeTab = () => {
               <div
                 className={`${styles.navbarLinkText1} ${styles.circeRegularNormalBlack16px}`}
               >
-                <span className={`${styles.circeRegularNormalBlack16px} `}>
+                <span
+                  className={`${styles.circeRegularNormalBlack16px} ${styles.left}`}
+                >
                   {item.type === 'INCOME' ? '+' : '-'}
                 </span>
               </div>
@@ -77,14 +79,14 @@ const HomeTab = () => {
                 } ${item.type === 'INCOME' ? styles.plus : ''}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.categoryName}
+                  {item.categoryName}ff
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkGiftForYourWife} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.comment}
+                  {item.comment}ff
                 </span>
               </div>
               <div
@@ -105,19 +107,24 @@ const HomeTab = () => {
                     .replace(/,/g, '\u00A0')}
                 </span>
               </div>
-              <img
-                className={styles.edit}
-                onClick={() => console.log('modal edit open')}
-                src={edit}
-                alt="Vector 18"
-              />
-              <div className={styles.btn} onClick={() => handleDelete(item.id)}>
+              <div className={styles.editionsGroup}>
+                <img
+                  className={styles.edit}
+                  onClick={() => console.log('modal edit open')}
+                  src={edit}
+                  alt="Vector 18"
+                />
                 <div
-                  className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
+                  className={styles.btn}
+                  onClick={() => handleDelete(item._id)}
                 >
-                  <span className={styles.circeRegularNormalWhite14px}>
-                    Delete
-                  </span>
+                  <div
+                    className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
+                  >
+                    <span className={styles.circeRegularNormalWhite14px}>
+                      Delete
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
