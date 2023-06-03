@@ -12,16 +12,7 @@ const handleRejection = (state, action) => {
   state.error = action.payload;
 };
 const initialTransactionsState = {
-  items: [
-    {
-      transactionDate: '04.01.19',
-      type: 'income',
-      category: 'Other',
-      comment: 'Gift for your wife',
-      amount: 3000.1,
-      id: "fdsfsdfs"
-    },
-  ],
+  items: [],
   isLoading: false,
   error: null,
 };
