@@ -1,7 +1,14 @@
 import styles from './ButtonAddTransactions.module.css';
 import { BsFillPlusCircleFill } from 'react-icons/bs';
+import { useSelector, useDispatch } from 'react-redux';
+import { toggleTransactionModal } from '../../redux/data/globalSlice';
+import { getIsTransactionModalOpen } from 'redux/Selectors';
+import AddTransaction from 'components/AddTransaction/AddTransaction';
+import { getTransactionCategories } from 'redux/transactions/transactionThunk';
 
 export function ButtonAddTransactions() {
+  const dispatch = useDispatch();
+  const isTransactionModalOpen = useSelector(getIsTransactionModalOpen);
 
   return (
     <>
@@ -9,9 +16,11 @@ export function ButtonAddTransactions() {
         className={styles.addButton}
         type="button"
         aria-label="add transaction button"
-        // onClick={handleClick}
+        onClick={() => {
+          dispatch(toggleTransactionModal());
+          dispatch(getTransactionCategories());
+        }}
       >
-        {' '}
         <BsFillPlusCircleFill
           size={44}
           style={{
@@ -21,6 +30,13 @@ export function ButtonAddTransactions() {
           }}
         />
       </button>
+      {isTransactionModalOpen && (
+        <AddTransaction
+          closeModal={() => {
+            dispatch(toggleTransactionModal());
+          }}
+        />
+      )}
     </>
   );
 }

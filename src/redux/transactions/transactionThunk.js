@@ -24,15 +24,28 @@ export const deleteSelectedTransaction = createAsyncThunk(
     }
   }
 );
+
 export const addNewTransaction = createAsyncThunk(
   'transactions/addTransactions',
   async (newTransaction, { rejectWithValue }) => {
     try {
       const response = await axios.post('/api/transactions', newTransaction);
-
       return response.data;
     } catch (e) {
       return rejectWithValue(e);
+    }
+  }
+);
+
+export const getTransactionCategories = createAsyncThunk(
+  'transactions/categories',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/api/transactions/categories');
+      console.log('info');
+      return response.data;
+    } catch (e) {
+      return thunkAPI.rejectWithValue(e.message);
     }
   }
 );
