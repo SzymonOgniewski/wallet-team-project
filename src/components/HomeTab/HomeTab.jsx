@@ -4,19 +4,19 @@ import edit from './edit.png';
 
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  fetchTransactions,  
+  fetchTransactions,
   deleteSelectedTransaction,
 } from '../../redux//transactions/transactionThunk';
 
 const HomeTab = () => {
-  const data = useSelector(state => state.transactions.items);
+  let data = useSelector(state => state.transactions.items.userTransactions);
+  if (!data) data = [];
   const dispatch = useDispatch();
-
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
   };
 
-  useEffect(() => {
+  useEffect(() => {    
     dispatch(fetchTransactions());
   }, [dispatch]);
 
@@ -55,23 +55,29 @@ const HomeTab = () => {
                 className={`${styles.navbarLinkDate1} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.transactionDate}
+                  {new Date(item.transactionDate)
+                    .toLocaleDateString('pl-PL', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                    })
+                    .replace(/\//g, '.')}
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkText1} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={`${styles.circeRegularNormalBlack16px} `}>
-                  {item.type === 'income' ? '+' : '-'}
+                  {item.type === 'INCOME' ? '+' : '-'}
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkOther} ${
                   styles.circeRegularNormalBlack16px
-                } ${item.type === 'income' ? styles.plus : ''}`}
+                } ${item.type === 'INCOME' ? styles.plus : ''}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.category}
+                  {item.categoryName}
                 </span>
               </div>
               <div
@@ -86,7 +92,7 @@ const HomeTab = () => {
               >
                 <span
                   className={
-                    item.type === 'income'
+                    item.type === 'INCOME'
                       ? `${styles.circeBoldCaribbeanGreen16px}`
                       : `${styles.circeBoldStrawberry16px}`
                   }
@@ -99,7 +105,12 @@ const HomeTab = () => {
                     .replace(/,/g, '\u00A0')}
                 </span>
               </div>
-              <img className={styles.edit} onClick={() => console.log("modal edit open")} src={edit} alt="Vector 18" />
+              <img
+                className={styles.edit}
+                onClick={() => console.log('modal edit open')}
+                src={edit}
+                alt="Vector 18"
+              />
               <div className={styles.btn} onClick={() => handleDelete(item.id)}>
                 <div
                   className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}

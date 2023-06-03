@@ -4,15 +4,15 @@ import { toast } from 'react-toastify';
 
 export const fetchBalance = createAsyncThunk(
   'finance/fetchBalance',
-  async () => {
+  async(_, thunkAPI) => {
     try {
       const response = await axios.get(
         'https://wallet-dybb.onrender.com/api/users/current'
-      ); 
-      return response.data.balance; 
-    } catch (error) { 
-      toast.error('Failed to fetch balance')
-      throw new Error('Failed to fetch balance');
+      );      
+      return response.data.data.user.balance;
+    } catch (error) {
+      toast.error('Failed to fetch balance');
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

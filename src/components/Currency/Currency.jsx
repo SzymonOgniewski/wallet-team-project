@@ -65,7 +65,6 @@ function CurrencyComponent() {
     }
 
     return (
-   
       <div className={styles.group}>
         <div className={styles.overlapGroup}>
           <div
@@ -101,7 +100,7 @@ function CurrencyComponent() {
             </div>
           ))}
           <img className={styles.vector7} src={Vector7} alt="Vector 7" />
-       </div>
+        </div>
       </div>
     );
   }
