@@ -1,4 +1,4 @@
-.valign-text-middle {
+.valignTextMiddle {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,8 +8,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 306px;
-  max-width: 715px;
 }
 
 .navHeight {
@@ -17,137 +15,50 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  table-layout: fixed;
 }
+
 .navbarLinkContainer {
   background-color: var(--white);
   border-radius: 30px;
   display: flex;
-  min-width: 715px;
-  max-width: 715px;
   padding: 15px 20px;
-}
-
-.navbarLinkPlace {
-  letter-spacing: 0px;
-  line-height: normal;
-  min-height: 27px;
-  min-width: 38px;
-}
-
-.navbarLinkType {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 72px;
-  min-width: 37px;
-  min-height: 27px;
-}
-
-.navbarLinkCategory {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 47px;
-  min-height: 27px;
-  min-width: 71px;
-}
-
-.navbarLinkComment {
-  letter-spacing: 0px;
-  line-height: normal;
-  min-height: 27px;
-  min-width: 76px;
-  margin-left: 75px;
-}
-
-.navbarLinkSum {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 115px;
-  min-height: 27px;
-  min-width: 34px;
-  text-align: right;
-}
-
-.navbarLinkDelete {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 115px;
-  min-height: 27px;
-  min-width: 34px;
-  text-align: right;
-  padding-right: 55px;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 620px;
+  width: fit-content;
+  margin-bottom: 20px;
 }
 
 .navbar1 {
-  flex-grow: 1;
-  align-items: center;
   display: flex;
-  height: 24px;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 14px;
-  padding-bottom: 12px;
-  min-width: 575px;
+  align-items: center;
+  padding: 15px 0px;
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
   border-bottom: 1px solid #dcdcdf;
   border: none;
+  min-width: 620px;
+  margin-left: 20px;
+  width: fit-content;
 }
 
-.navbarLinkDate1 {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-top: -1px;
-  min-height: 24px;
-  min-width: 55px;
+.navbarLinkContainer > div,
+.navbar1 > div {
+  flex: 1;
 }
 
-.navbarLinkText1 {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 67px;
-  margin-top: 1px;
-  min-height: 24px;
-  min-width: 7px;
-  text-align: center;
+.btn {
+    flex-basis: 26.66%; /* Set an equal width for each column */
+  }
+
+
+.left{
+margin-left: 17px;
 }
 
-.navbarLinkOther {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 65px;
-  margin-top: 1px;
-  min-height: 24px;
-  min-width: 42px;
-}
-
-.navbarLinkGiftForYourWife {
-  letter-spacing: 0px;
-  line-height: normal;
-  margin-left: 104px;
-  margin-top: 1px;
-  min-height: 24px;
-  min-width: 117px;
-}
-
-.navbarLinkPhone {
-  letter-spacing: 0;
-  line-height: normal;
-  margin-left: 60px;
-  margin-top: -1px;
-  min-height: 24px;
-  text-align: right;
-  min-width: 48px;
-}
-
-.vector1 {
-  align-self: flex-end;
-  height: 1px;
-  margin-top: 14px;
-  width: 700px;
-}
 
 .circeRegularNormalWhite14px {
   color: var(--white);
-  font-family: var(--font-family-circe-regular);
   font-size: var(--font-size-s);
   font-weight: 400;
   font-style: normal;
@@ -155,7 +66,6 @@
 
 .circeRegularNormalBlack16px {
   color: var(--black);
-  font-family: var(--font-family-circe-regular);
   font-size: var(--font-size-m);
   font-weight: 400;
   font-style: normal;
@@ -163,7 +73,6 @@
 
 .circeBoldBlack18px {
   color: var(--black);
-  font-family: var(--font-family-circe-bold);
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
@@ -172,7 +81,6 @@
 
 .circeBoldBlack18pxDelete {
   color: var(--black);
-  font-family: var(--font-family-circe-bold);
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
@@ -182,7 +90,6 @@
 
 .circeBoldStrawberry16px {
   color: var(--strawberry);
-  font-family: var(--font-family-circe-bold);
   font-size: var(--font-size-m);
   font-weight: 700;
   font-style: normal;
@@ -190,7 +97,6 @@
 
 .circeBoldWhite18px {
   color: var(--white);
-  font-family: var(--font-family-circe-bold);
   font-size: var(--font-size-1);
   font-weight: 700;
   font-style: normal;
@@ -198,17 +104,9 @@
 
 .circeRegularNormalWhite16px {
   color: var(--white);
-  font-family: var(--font-family-circe-regular);
   font-size: var(--font-size-m);
   font-weight: 400;
   font-style: normal;
-}
-
-@font-face {
-  font-style: normal;
-  font-family: 'Circe-Regular';
-  font-weight: 400;
-  src: url('https://fonts.animeapp.com/Circe-Regular') format('truetype');
 }
 
 .btn {
@@ -216,11 +114,10 @@
   background-color: var(--caribbean-green);
   border-radius: 18px;
   display: flex;
-  justify-content: center; /* Add this line to center the content horizontally */
-  text-align: center;
+  justify-content: center;
   min-width: 67px;
   padding: 3px 12px;
-  margin-left: 9.27px;
+  
 }
 
 .delete {
@@ -229,54 +126,32 @@
   min-height: 18px;
   text-align: center;
   width: 43px;
-}
-
-.circeRegularNormalWhite14px {
-  color: var(--white);
-  font-size: var(--font-size-s);
-  font-family: var(--font-family-circe-regular);
-  font-weight: 400;
-  font-style: normal;
-}
-
-.circeRegularNormalWhite14px {
-  color: var(--white);
-  font-size: var(--font-size-s);
-  font-family: var(--font-family-circe-regular);
-  font-weight: 400;
-  font-style: normal;
+  
 }
 
 .edit {
   height: 14px;
   width: 14px;
-  margin-left: 40px;
-}
-
-.circeBoldStrawberry16px {
-  color: var(--strawberry);
-  font-family: var(--font-family-circe-bold);
-  font-size: var(--font-size-m);
-  font-weight: 700;
-  font-style: normal;
-}
-
-.circeBoldCaribbeanGreen16px {
-  color: var(--caribbean-green);
-  font-family: var(--font-family-circe-bold);
-  font-size: var(--font-size-m);
-  font-weight: 700;
-  font-style: normal;
+  transform: translateX(-20px);
 }
 
 .plus {
-  margin-left: 63px;
+  margin-left: 15px;
 }
 
+.editionsGroup {
+  display: flex;
+ justify-content: space-between;
+  align-items: center;  
+}
+
+.vector1 {
+  height: 1px;
+}
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .circeRegularNormalBlack16px {
-    width: 14%;
+    flex-basis: 16.66%; /* Set an equal width for each column */
   }
 
   .navbarLinkPlace,
@@ -284,7 +159,7 @@
   .navbarLinkComment,
   .navbarLinkType,
   .navbarLinkCategory {
-    width: 20%;
+    flex-basis: 16.66%; /* Set an equal width for each column */
   }
 
   .navbarLinkDate1,
@@ -294,53 +169,34 @@
   .navbarLinkPhone,
   .vector1,
   .btn {
-    width: 14%;
+    flex-basis: 16.66%; /* Set an equal width for each column */
   }
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  /* CSS rules for the specified resolution range */
-  .group306 {
-    margin-left: 0;
-    max-width: 700px;
-  }
-  .navbarLinkSum {  
-  margin-left: 15px; 
-}
-  .navbarLinkContainer {   
-    padding: 10px;
-  }
+
 }
 
 @media (max-width: 767px) {
-  /* CSS rules for the specified resolution range */
   .group306 {
     margin-left: 0;
     max-width: 280px;
   }
-  .navbarLinkSum {  
-  margin-left: 2px; 
-}
-  .navbarLinkContainer {   
+  .navbarLinkSum {
+    margin-left: 2px;
+  }
+  .navbarLinkContainer {
     padding: 10px;
   }
   .navbarLinkType {
-  
-  margin-left: 2px;
+    margin-left: 2px;
+  }
 
-}
+  .navbarLinkComment {
+    margin-left: 2px;
+  }
 
-.navbarLinkComment {
-
-  margin-left: 2px;
-}
-
-.navbarLinkCategory {
-  
-  margin-left: 2px;
-  
-}
-
-
-
+  .navbarLinkCategory {
+    margin-left: 2px;
+  }
 }
