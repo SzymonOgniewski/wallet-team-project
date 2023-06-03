@@ -26,7 +26,6 @@ const StatisticContainer = () => {
         );
         setData(response.data.data.response);
       } catch (error) {
-        // Handle error case
         console.error('Error:', error);
       }
     };
