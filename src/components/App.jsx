@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Home } from 'pages/HomePage/HomePage';
 import { Diagram } from 'pages/StatisticsPage/StatisticsPage';
 import { Currency } from 'pages/CurrencyPage/CurrencyPage';
+import { DashboardPage } from 'pages/DashboardPage/DashboardPage';
 
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
@@ -12,8 +13,7 @@ const RegistrationPage = lazy(() =>
 
 export const App = () => {
   return (
-
-    <Router basename='/wallet-team-project'>
+    <Router basename="/wallet-team-project">
       <div>
         <Routes>
           <Route
@@ -32,6 +32,7 @@ export const App = () => {
               </Suspense>
             }
           />
+          <Route path="home" element={<DashboardPage/>} />
           <Route path="*" element={<Home />} />
           <Route path="/diagram" element={<Diagram />} />
           <Route path="/currency" element={<Currency />} />
