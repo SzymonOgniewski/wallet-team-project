@@ -3,10 +3,9 @@ import css from './StatisticsTable.module.css';
 
 const StatisticsTable = () => {
   //w konsoli przeglądarki wywala błąd
-  //const income = statistic.incomeSummary;
-  //const expenses = statistic.expenseSummary;
-
-      
+  const income = state => state.transactions.incomeSummary;
+  const expenses = state => state.transactions.expenseSummary;
+   
   //const tableForMap = statistic.categoriesSummary
 
   //Mock tabela widzać że działa i ładnie się wyświetla
@@ -20,7 +19,6 @@ const StatisticsTable = () => {
     { title: 'Education', value: 3400, color: '#81E1FF' },
     { title: 'Leisure', value: 123, color: '#24CCA7' },
     { title: 'Other expenses', value: 610, color: '#00AD84' },
-
   ];
 
   return (
@@ -68,7 +66,7 @@ const StatisticsTable = () => {
             </td>
             <td className={css.td}>
               <div className={css.valueWrapp}>
-                <p className={css.expensesValue}>expenses</p>
+                <p className={css.expensesValue}>{expenses}</p>
               </div>
             </td>
           </tr>
@@ -79,7 +77,7 @@ const StatisticsTable = () => {
             </td>
             <td className={css.td}>
               <div className={css.valueWrapp}>
-                <p className={css.incomeValue}>income</p>
+                <p className={css.incomeValue}>{income}</p>
               </div>
             </td>
           </tr>

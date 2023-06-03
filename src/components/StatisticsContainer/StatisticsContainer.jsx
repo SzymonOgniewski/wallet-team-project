@@ -26,28 +26,12 @@ const StatisticContainer = () => {
         );
         setData(response.data.data.response);
       } catch (error) {
-        // Handle error case
         console.error('Error:', error);
       }
     };
-
     fetchData();
   }, [year, month]);
 
-
-  //   useEffect(() => {
-  //     if (month !== '' && year !== '') {
-  //       const params = {
-  //         month,
-  //         year,
-  //       };
-  //       dispatch();
-  //     }
-  //   }, [month, year]);
-
-  //   useEffect(() => {
-  //     dispatch();
-  //   }, [dispatch]);
 
   const MakeStatistic = (categories, details) => {
     if (categories && details) {

@@ -143,6 +143,6 @@ p {
 
 @media screen and (min-width: 1280px) {
   .transactionHistory {
-    width: 395px;
+    width: 100%;
   }
 }
