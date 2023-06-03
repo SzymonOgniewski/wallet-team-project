@@ -6,8 +6,8 @@ import { refreshUser } from 'redux/auth/AuthThunk';
 
 const TotalBalanceComponent = () => {
   const dispatch = useDispatch();
-  const totalBalance = useSelector(state => state.finance.balance);
-  console.log(totalBalance);
+  let totalBalance = useSelector(state => state.finance.balance);  
+  if (!totalBalance) totalBalance = 0;
   const formattedBalance = totalBalance
     .toLocaleString('en-US', {
       minimumFractionDigits: 2,
@@ -17,7 +17,7 @@ const TotalBalanceComponent = () => {
 
   useEffect(() => {
     dispatch(refreshUser());
-    // dispatch(fetchBalance());
+    dispatch(fetchBalance());
   }, [dispatch]);
 
   return (

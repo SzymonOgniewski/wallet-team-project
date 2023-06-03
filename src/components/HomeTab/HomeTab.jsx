@@ -12,12 +12,11 @@ const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
   if (!data) data = [];
   const dispatch = useDispatch();
-
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
   };
 
-  useEffect(() => {
+  useEffect(() => {    
     dispatch(fetchTransactions());
   }, [dispatch]);
 
@@ -56,23 +55,29 @@ const HomeTab = () => {
                 className={`${styles.navbarLinkDate1} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.transactionDate}
+                  {new Date(item.transactionDate)
+                    .toLocaleDateString('pl-PL', {
+                      day: '2-digit',
+                      month: '2-digit',
+                      year: 'numeric',
+                    })
+                    .replace(/\//g, '.')}
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkText1} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={`${styles.circeRegularNormalBlack16px} `}>
-                  {item.type === 'income' ? '+' : '-'}
+                  {item.type === 'INCOME' ? '+' : '-'}
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkOther} ${
                   styles.circeRegularNormalBlack16px
-                } ${item.type === 'income' ? styles.plus : ''}`}
+                } ${item.type === 'INCOME' ? styles.plus : ''}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.category}
+                  {item.categoryName}
                 </span>
               </div>
               <div
@@ -87,7 +92,7 @@ const HomeTab = () => {
               >
                 <span
                   className={
-                    item.type === 'income'
+                    item.type === 'INCOME'
                       ? `${styles.circeBoldCaribbeanGreen16px}`
                       : `${styles.circeBoldStrawberry16px}`
                   }
