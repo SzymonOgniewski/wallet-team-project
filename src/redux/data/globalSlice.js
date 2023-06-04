@@ -18,7 +18,7 @@ const globalSlice = createSlice({
       store.isTransactionModalOpen = !store.isTransactionModalOpen;
     },
     toggleTransactionEditModal: (store, _) => {
-      store.isTransactionModalOpen = !store.isTransactionEditModalOpen;
+      store.isTransactionEditModalOpen = !store.isTransactionEditModalOpen;
     },
   },
 });

@@ -12,15 +12,23 @@ import {
   editTransaction,
   getTransactionCategories,
 } from 'redux/transactions/transactionThunk';
-import { getCategories } from 'redux/transactions/transactionSelectors';
+import {
+  getCategories,
+  getTransactions,
+} from 'redux/transactions/transactionSelectors';
 import moment from 'moment';
 
 const modalRoot = document.querySelector('#transaction-creation-root');
 
-const EditTransaction = ({ transaction, closeModal }) => {
+const EditTransaction = ({ transactionId, closeModal }) => {
   const dispatch = useDispatch();
-  const categories = useSelector(getCategories);
-
+  const transactions = useSelector(getTransactions);
+  const transaction = transactions.userTransactions.find(
+    t => t._id === transactionId
+  );
+  useEffect(() => {
+    dispatch(getTransactionCategories());
+  }, [dispatch]);
   const formik = useFormik({
     initialValues: {
       amount: transaction.amount.toString(),
@@ -53,33 +61,30 @@ const EditTransaction = ({ transaction, closeModal }) => {
       closeModal();
     },
   });
-
   const handleBackdropClose = e => {
     if (e.currentTarget === e.target) {
       closeModal();
     }
   };
-
-  const getCategoryColor = categoryId => {
-    const category = categories.categories.find(
-      category => category._id === categoryId
-    );
-    return category?.color || '';
-  };
+  const categories = useSelector(getCategories);
 
   return createPortal(
     <div className={css.addTransactionModal} onClick={handleBackdropClose}>
       <div className={css.addTransactionModalContent}>
-        <h2
-          className={css.addTransactionTitle}
-          style={{
-            backgroundColor: getCategoryColor(
-              formik.values.transactionCategory
-            ),
-          }}
-        >
-          Edit Transaction
-        </h2>
+        <h2 className={css.addTransactionTitle}>Edit Transaction</h2>
+        {formik.values.transactionCategory === '6471096a9af3d469961187f0' ? (
+          <div>
+            <span className={css.switchIncomeActive}>Income</span>
+            <span> / </span>
+            <span className={css.switchText}>Expense</span>
+          </div>
+        ) : (
+          <div>
+            <span className={css.switchText}>Income</span>
+            <span> / </span>
+            <span className={css.switchExpenseActive}>Expense</span>
+          </div>
+        )}
         <Formik
           initialValues={formik.initialValues}
           validationSchema={formik.validationSchema}
