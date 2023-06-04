@@ -30,14 +30,12 @@ export const addNewTransaction = createAsyncThunk(
   async (newTransaction, { rejectWithValue }) => {
     try {
       const response = await axios.post('/api/transactions', newTransaction);
-      console.log(newTransaction);
       return response.data;
     } catch (e) {
       return rejectWithValue(e);
     }
   }
 );
-
 
 export const getTransactionCategories = createAsyncThunk(
   'transactions/categories',
