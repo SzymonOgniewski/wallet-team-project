@@ -80,7 +80,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     <div onClick={toggleCalendar} className={css.wrappCalendar}>
       <div>
         <div onClick={toggleMonth} className={css.wrapperMonth}>
-          <p className={css.calendarText}>Month</p>
+          <p className={css.calendarText}>{monthTime ? monthTime : 'Month'}</p>
           <img src={arrow} alt=">" />
         </div>
         {month && (
@@ -102,7 +102,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
           onClick={toggleYear}
           className={`${css.wrapperMonth} ${css.wrapperYear}`}
         >
-          <p className={css.calendarText}>Year</p>
+          <p className={css.calendarText}>{yearTime ? yearTime : 'Year'}</p>
           <img src={arrow} alt=">" />
         </div>
         {year && (
