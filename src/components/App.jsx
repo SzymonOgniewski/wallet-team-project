@@ -22,7 +22,7 @@ export const App = () => {
             path="/login"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <RestrictedRoute redirectTo="/home" component={LoginPage} />
+                <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
               </Suspense>
             }
           />
