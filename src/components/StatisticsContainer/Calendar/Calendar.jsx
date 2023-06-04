@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import css from './Calendar.module.css';
 import arrow from './images/Vector.png';
 import { fetchTransactionsSummary } from '../../../redux/transactions/transactionThunk';
