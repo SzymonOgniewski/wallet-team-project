@@ -3,7 +3,7 @@ import {
   fetchTransactions,
   addNewTransaction,
   deleteSelectedTransaction,
-
+  fetchTransactionsSummary,
   getTransactionCategories,
 
 } from './transactionThunk';
