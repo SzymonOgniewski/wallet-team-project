@@ -38,6 +38,7 @@ export const addNewTransaction = createAsyncThunk(
   }
 );
 
+
 export const getTransactionCategories = createAsyncThunk(
   'transactions/categories',
   async (_, thunkAPI) => {
@@ -49,3 +50,7 @@ export const getTransactionCategories = createAsyncThunk(
     }
   }
 );
+
+
+
+

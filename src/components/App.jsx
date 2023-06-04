@@ -1,5 +1,7 @@
 import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { ProtectedRoute } from './Route/ProtectedRoute';
+import { RestrictedRoute } from './Route/RestrictedRoute';
 // import { ButtonAddTransactions } from './ButtonAddTransactions/ButtonAddTransactions';
 import { Home } from 'pages/HomePage/HomePage';
 import { Diagram } from 'pages/StatisticsPage/StatisticsPage';
@@ -20,7 +22,7 @@ export const App = () => {
             path="/login"
             element={
               <Suspense fallback={<div>Loading...</div>}>
-                <LoginPage />
+                <RestrictedRoute redirectTo="/home" component={<LoginPage />} />
               </Suspense>
             }
           />
@@ -32,10 +34,33 @@ export const App = () => {
               </Suspense>
             }
           />
-          <Route path="home" element={<DashboardPage/>} />
-          <Route path="*" element={<Home />} />
-          <Route path="/diagram" element={<Diagram />} />
-          <Route path="/currency" element={<Currency />} />
+          <Route
+            path="/home"
+            element={
+              <ProtectedRoute
+                component={<DashboardPage />}
+                redirectTo={'/login'}
+              />
+            }
+          />
+          <Route
+            path="*"
+            element={
+              <ProtectedRoute component={<Home />} redirectTo={'/login'} />
+            }
+          />
+          <Route
+            path="/diagram"
+            element={
+              <ProtectedRoute component={<Diagram />} redirectTo={'/login'} />
+            }
+          />
+          <Route
+            path="/currency"
+            element={
+              <ProtectedRoute component={<Currency />} redirectTo={'/login'} />
+            }
+          />
         </Routes>
       </div>
     </Router>

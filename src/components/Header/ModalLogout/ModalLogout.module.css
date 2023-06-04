@@ -1,89 +1,116 @@
 .ExitModal {
-    height: 100vh;
-    width: 100vw;
-    background-color: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    backdrop-filter: blur(10px);
-    top: 0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  animation: blowUpModal 0.5s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
-
 
 .ExitModalContent {
-    position: relative;
-    padding: 20px;
-    width: 500px;
-    height: 230px;
-    border-radius: 10px;
-    background-color: #FFFFFF;
-}
+  position: relative;
+  padding: 20px;
+  width: 500px;
+  height: 230px;
+  border-radius: 10px;
+  background-color: #ffffff;
 
+  @media screen and (max-width: 520px) {
+    height: 400px;
+  }
+
+  @media screen and (max-width: 767px) {
+    height: 300px;
+  }
+}
 
 .ExitTitle {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.5;
-    border-radius: 20px;
-    color: #0e0e0e;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 10px;
-    margin-bottom: 30px;
-    margin-top: 40px;
-}
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.5;
+  border-radius: 20px;
+  color: #0e0e0e;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 30px;
+  margin-top: 40px;
 
+  @media screen and (max-width: 767px) {
+    font-size: 20px;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 15px;
+  }
+}
 
 .BtnYes {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: #24CCA7;
-    border-radius: 20px;
-    color: #FFFFFF;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-right: 100px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: 1px solid #24CCA7;
-    &:hover {
-      background-color: #FFFFFF;
-      color: #24CCA7;
-      transition: 500ms;
-      border: 1px solid #24CCA7;
-    }
-}
-   
-.BtnNo {
-    font-weight: 700;
-    font-size: 16px;
-    line-height: 1.5;
-    background-color: #FF6596;
-    border: none;
-    color: #FFFFFF;
-    padding: 10px 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: 1px solid #FF6596;
-    &:hover {
-      background-color: #FFFFFF;
-      color: #FF6596;
-      transition: 500ms;
-      border: 1px solid #FF6596;
-    }
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #24cca7;
+  border-radius: 20px;
+  color: #ffffff;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 100px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #24cca7;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #24cca7;
+    transition: 500ms;
+    border: 1px solid #24cca7;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 20px;
+  }
 }
 
+.BtnNo {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  background-color: #ff6596;
+  border: none;
+  color: #ffffff;
+  padding: 10px 50px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #ff6596;
+
+  &:hover {
+    background-color: #ffffff;
+    color: #ff6596;
+    transition: 500ms;
+    border: 1px solid #ff6596;
+  }
+
+  @media screen and (max-width: 767px) {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
