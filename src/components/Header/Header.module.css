@@ -1,112 +1,112 @@
 .Header {
-    background-color: #FFFFFF;
-    margin-bottom: 40px;
-  }
-  
+  background-color: #ffffff;
+  margin-bottom: 40px;
+}
+
+.Container {
+  width: 320px;
+  margin: 0 auto;
+  padding-top: 15px;
+  padding-right: 20px;
+  padding-bottom: 15px;
+  padding-left: 20px;
+}
+
+.Nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.UserNav {
+  display: flex;
+  height: 30px;
+}
+
+.UserNavItem {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: #bdbdbd;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.ExitNavItem {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 32px;
+  margin-left: 8px;
+  margin-top: 4px;
+}
+
+.ExitNavItem:hover {
+  color: #ff6596;
+}
+
+.ButtonExit {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #bdbdbd;
+  cursor: pointer;
+  border: 0;
+  background-color: inherit;
+  padding: 0;
+  margin-left: 8px;
+  font-size: 18px;
+}
+
+.ButtonExit .UserNavItem {
+  position: relative;
+  top: 1px;
+  margin-left: 8px;
+  color: #bdbdbd;
+  font-family: 'Circe';
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.ButtonExit::before {
+  display: none;
+  content: '';
+  width: 1px;
+  height: 100%;
+  background-color: #bdbdbd;
+  margin-right: 12px;
+}
+
+@media screen and (min-width: 768px) {
   .Container {
-    width: 320px;
-    margin: 0 auto;
-    padding-top: 15px;
-    padding-right: 20px;
-    padding-bottom: 15px;
-    padding-left: 20px;
-  }
-  
-  .Nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-  }
-  
-  .UserNav {
-    display: flex;
-    height: 30px;
-  }
-  
-  .UserNavItem {
-    margin-top: 0;
-    margin-bottom: 0;
-    color: #BDBDBD;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-  }
-
-  .ExitNavItem {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 32px;
-    margin-left: 8px;
-    margin-top: 4px;
-  }
-
-  .ExitNavItem:hover {
-    color: #FF6596;
+    width: 768px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 32px;
+    padding-left: 32px;
   }
 
   .ButtonExit {
-    display: inline-flex;
-    justify-content: space-between;
-    align-items: center;
-    color: #BDBDBD;
-    cursor: pointer;
-    border: 0;
-    background-color: inherit;
-    padding: 0;
-    margin-left: 8px;
-    font-size: 18px;
+    margin-left: 12px;
+    color: #bdbdbd;
   }
-  
-  .ButtonExit .UserNavItem {
-    position: relative;
-    top: 1px;
-    margin-left: 8px;
-    color: #BDBDBD;
-    font-family: 'Circe';
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 1.5;
-  }
-  
+
   .ButtonExit::before {
-    display: none;
-    content: '';
-    width: 1px;
-    height: 100%;
-    background-color: #BDBDBD;
-    margin-right: 12px;
+    display: block;
   }
-  
-  @media screen and (min-width: 768px) {
-    .Container {
-      width: 768px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-right: 32px;
-      padding-left: 32px;
-    }
-  
-    .ButtonExit {
-      margin-left: 12px;
-      color: #BDBDBD;
-    }
 
-    .ButtonExit::before {
-      display: block;
-    }
+  .ButtonExit:hover {
+    color: #ff6596;
+  }
+}
 
-    .ButtonExit:hover {
-      color: #FF6596;
-    }
+@media screen and (min-width: 1280px) {
+  .Container {
+    width: 1280px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-right: 16px;
+    padding-left: 16px;
   }
-  
-  @media screen and (min-width: 1280px) {
-    .Container {
-      width: 1280px;
-      padding-top: 20px;
-      padding-bottom: 20px;
-      padding-right: 16px;
-      padding-left: 16px;
-    }
-  }
+}
