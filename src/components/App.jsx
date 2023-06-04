@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ProtectedRoute } from './Route/ProtectedRoute';
 import { RestrictedRoute } from './Route/RestrictedRoute';
@@ -7,13 +7,29 @@ import { Home } from 'pages/HomePage/HomePage';
 import { Diagram } from 'pages/StatisticsPage/StatisticsPage';
 import { Currency } from 'pages/CurrencyPage/CurrencyPage';
 import { DashboardPage } from 'pages/DashboardPage/DashboardPage';
-
+import { useDispatch } from 'react-redux';
+import axios from 'axios';
+import { refreshUser } from 'redux/auth/AuthThunk';
 const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
 const RegistrationPage = lazy(() =>
   import('../pages/RegistrationPage/RegistrationPage')
 );
-
+axios.interceptors.response.use(
+  response => {
+    if (response.data && response.data.token) {
+      axios.defaults.headers.common.Authorization = `Bearer ${response.data.token}`;
+    }
+    return response;
+  },
+  error => {
+    return Promise.reject(error);
+  }
+);
 export const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
   return (
     <Router basename="/wallet-team-project">
       <div>
