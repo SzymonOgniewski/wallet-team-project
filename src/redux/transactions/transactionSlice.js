@@ -3,7 +3,9 @@ import {
   fetchTransactions,
   addNewTransaction,
   deleteSelectedTransaction,
-  fetchTransactionsSummary,
+
+  getTransactionCategories,
+
 } from './transactionThunk';
 const handlePendingState = state => {
   state.isLoading = true;
@@ -40,11 +42,17 @@ const transactionsSlice = createSlice({
       .addCase(addNewTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.items.push(action.payload);
       })
       .addCase(deleteSelectedTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+
+      })
+      .addCase(getTransactionCategories.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.categories = action.payload;
+
       })
       .addMatcher(isPendingAction, handlePendingState)
       .addMatcher(isRejectedAction, handleRejection)

@@ -11,7 +11,6 @@ import {
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
   if (!data) data = [];
-  // console.log(data);
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
