@@ -18,7 +18,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
   useEffect(() => {
     if (monthTime && yearTime) {
       dispatch(fetchTransactionsSummary({ year: yearTime, month: monthTime }));
-      setOpenCalendar(false); // Close the calendar after picking a date
+      setOpenCalendar(false);
     }
   }, [dispatch, yearTime, monthTime]);
 
@@ -41,7 +41,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     }
     setMonthAmount(chosenOne.toString());
     setMonthTime(chosenOne.toString());
-    setOpenCalendar(false); // Close the calendar after picking a date
+    setOpenCalendar(false); 
      setTimeout(() => {
        setMonth(false);
      }, 500);
@@ -51,7 +51,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     const chosenOne = e._d.getFullYear().toString();
     setYearAmount(chosenOne);
     setYearTime(chosenOne.toString());
-    setOpenCalendar(false); // Close the calendar after picking a date
+    setOpenCalendar(false); 
     setTimeout(() => {
       setYear(false);
     }, 500);
