@@ -1,22 +1,33 @@
+import React, { useEffect } from 'react';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import { useState } from 'react';
-
+import { useDispatch } from 'react-redux';
 import css from './Calendar.module.css';
 import arrow from './images/Vector.png';
+import { fetchTransactionsSummary } from '../../../redux/transactions/transactionThunk';
 
 const Calendar = ({ setMonthAmount, setYearAmount }) => {
   const [month, setMonth] = useState(false);
   const [year, setYear] = useState(false);
   const [openCalendar, setOpenCalendar] = useState(true);
+  const [monthTime, setMonthTime] = useState(null);
+  const [yearTime, setYearTime] = useState(null);
+  
+  const dispatch = useDispatch();
+  useEffect(() => {   
+    if (monthTime && yearTime) {      
+      dispatch(fetchTransactionsSummary({ year: yearTime, month: monthTime }));
+    }
+  }, [dispatch, year, month, yearTime, monthTime]);
 
   const toggleMonth = () => {
-    setMonth(!month);
+    setMonth(true);
     setYear(false);
   };
 
   const toggleYear = () => {
-    setYear(!year);
+    setYear(true);
     setMonth(false);
   };
 
@@ -27,12 +38,14 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     }
     console.log(choosenOne.toString());
     setMonthAmount(choosenOne.toString());
+    setMonthTime(choosenOne.toString());
   };
 
   const onYearChange = e => {
     const choosenOne = e._d.getFullYear().toString();
     setYearAmount(choosenOne);
     console.log(choosenOne.toString());
+    setYearTime(choosenOne.toString());
   };
 
   const isValidData = data => {

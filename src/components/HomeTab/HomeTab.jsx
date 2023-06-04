@@ -11,7 +11,7 @@ import {
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
   if (!data) data = [];
-  console.log(data);
+  // console.log(data);
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
@@ -86,7 +86,7 @@ const HomeTab = () => {
                 className={`${styles.navbarLinkGiftForYourWife} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.comment ? item.comment : "No comment"}ff
+                  {item.comment ? item.comment : "No comment"}
                 </span>
               </div>
               <div
