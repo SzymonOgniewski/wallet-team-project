@@ -1,4 +1,5 @@
 import { createPortal } from 'react-dom';
+import { useNavigate } from 'react-router-dom';
 import { logOut } from 'redux/auth/AuthThunk';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -9,6 +10,7 @@ const modalRoot = document.querySelector('#modal-logout-root');
 
 const ModalLogout = ({ closeModal }) => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleKeyDown = e => {
@@ -29,6 +31,12 @@ const ModalLogout = ({ closeModal }) => {
     }
   };
 
+  const handleLogoutClick = () => {
+    dispatch(logOut());
+    navigate('/login');
+    closeModal();
+  };
+
   return createPortal(
     <div className={css.ExitModal} onClick={handleBackdropClose}>
       <div className={css.ExitModalContent}>
@@ -41,8 +49,7 @@ const ModalLogout = ({ closeModal }) => {
           type="button"
           className={css.BtnYes}
           onClick={() => {
-            dispatch(logOut);
-            closeModal();
+            handleLogoutClick();
           }}
         >
           Yes
