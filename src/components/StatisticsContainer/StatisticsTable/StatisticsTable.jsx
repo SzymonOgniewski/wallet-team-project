@@ -5,6 +5,8 @@ import { fetchTransactionsSummary } from '../../../redux/transactions/transactio
 
 const StatisticsTable = () => {
   const dispatch = useDispatch();
+
+
   
   const income = useSelector(state => state.transactions.summary.incomeSummary);
   
@@ -30,6 +32,12 @@ const StatisticsTable = () => {
     { title: 'Education', value: 3400, color: '#81E1FF' },
     { title: 'Leisure', value: 123, color: '#8A2BE2' },
     { title: 'Other expenses', value: 610, color: '#00AD84' },
+    {
+      _id: '6471096a9af3d469961187ef',
+      title: 'Entertainment',
+      type: 'EXPENSE',
+      color: '#9AFA41',
+    },
   ];
 
   const getTitleColor = title => {

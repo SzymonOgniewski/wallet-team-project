@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
-import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
-
 import css from './ChartDiagram.module.css';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
@@ -13,7 +10,7 @@ const ChartDiagram = () => {
   const balance = useSelector(state => state.finance.balance);
 
   const optionsChart = { plugins: { tooltip: true } };
-  const [options, setOptionsChart] = useState(optionsChart);
+  const [options] = useState(optionsChart);
   let transactionsSummary = useSelector(
     state => state.transactions.summary.categoriesSummary
   );
@@ -29,8 +26,6 @@ const ChartDiagram = () => {
     names.push(item.name);
   });
 
-  // Display totals in a new table
-
   const tab = [
     { title: 'Income', value: 8700, color: '#24CCA7' },
     { title: 'default transaction', value: 8700, color: '#808080' },
@@ -43,52 +38,30 @@ const ChartDiagram = () => {
     { title: 'Education', value: 3400, color: '#81E1FF' },
     { title: 'Leisure', value: 123, color: '#8A2BE2' },
     { title: 'Other expenses', value: 610, color: '#00AD84' },
+    {
+      _id: '6471096a9af3d469961187ef',
+      title: 'Entertainment',
+      type: 'EXPENSE',
+      color: '#9AFA41',
+    },
   ];
 
   const getTitleColor = title => {
     const item = tab.find(item => item.title === title);
     return item ? item.color : 'red';
   };
-const colors = [];
-names.forEach(item => {
-  const color = getTitleColor(item);
-  colors.push(color);
-});
 
-
-
-  const [data, setData] = useState({
-    datasets: [
-      {
-        data: totals,
-        backgroundColor: [
-          getTitleColor(),
-          '#FFD8D0',
-          '#FD9498',
-          '#C5BAFF',
-          '#6E78E8',
-          '#4A56E2',
-          '#81E1FF',
-          '#24CCA7',
-          '#00AD84',
-          '#FF6596',
-          '#000000',
-          '#FFFFFF',
-          '#A6A6A6',
-          '#BDBDBD',
-        ],
-        borderWidth: 0,
-        cutout: 90,
-        hoverBorderWidth: 5,
-      },
-    ],
+  const colors = [];
+  names.forEach(item => {
+    const color = getTitleColor(item);
+    colors.push(color);
   });
 
   const set = {
     datasets: [
       {
         data: totals,
-        backgroundColor:colors,
+        backgroundColor: colors,
         borderWidth: 0,
         cutout: 90,
         hoverBorderWidth: 5,
@@ -96,54 +69,20 @@ names.forEach(item => {
     ],
   };
 
-  console.log(data);
-
-  // useEffect(() => {
-  //   if (transactionsSummary) {
-  //     const newData = {
-  //       datasets: [
-  //         {
-  //           data: transactionsSummary,
-  //           backgroundColor: [
-  //             '#FED057',
-  //             '#FFD8D0',
-  //             '#FD9498',
-  //             '#C5BAFF',
-  //             '#6E78E8',
-  //             '#4A56E2',
-  //             '#81E1FF',
-  //             '#24CCA7',
-  //             '#00AD84',
-  //             '#FF6596',
-  //             '#000000',
-  //             '#FFFFFF',
-  //             '#A6A6A6',
-  //             '#BDBDBD',
-  //           ],
-  //           borderWidth: 0,
-  //           cutout: 90,
-  //           hoverBorderWidth: 5,
-  //         },
-  //       ],
-  //     };
-
-    
-      const newData = {
-        datasets: [
-          {
-            label: 'You are have not expenses in current period',
-            data: [0.01],
-            backgroundColor: ['#C5BAFF'],
-            borderColor: ['#C5BAFF'],
-            cutout: 90,
-            hoverBorderWidth: 5,
-            labelTextColors: '#00AD84',
-          },
-        ],
+  const newData = {
+    datasets: [
+      {
+        label: 'You have no expenses in the current period',
+        data: [0.01],
+        backgroundColor: ['#C5BAFF'],
+        borderColor: ['#C5BAFF'],
+        cutout: 90,
+        hoverBorderWidth: 5,
         labelTextColors: '#00AD84',
-      };
-
- 
+      },
+    ],
+    labelTextColors: '#00AD84',
+  };
 
   return (
     <div className={css.diagram}>

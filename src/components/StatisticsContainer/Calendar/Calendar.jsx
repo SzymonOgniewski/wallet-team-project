@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import css from './Calendar.module.css';
 import arrow from './images/Vector.png';
@@ -13,13 +12,15 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
   const [openCalendar, setOpenCalendar] = useState(true);
   const [monthTime, setMonthTime] = useState(null);
   const [yearTime, setYearTime] = useState(null);
-  
+
   const dispatch = useDispatch();
-  useEffect(() => {   
-    if (monthTime && yearTime) {      
+
+  useEffect(() => {
+    if (monthTime && yearTime) {
       dispatch(fetchTransactionsSummary({ year: yearTime, month: monthTime }));
+      setOpenCalendar(false); // Close the calendar after picking a date
     }
-  }, [dispatch, year, month, yearTime, monthTime]);
+  }, [dispatch, yearTime, monthTime]);
 
   const toggleMonth = () => {
     setMonth(!month);
@@ -31,24 +32,32 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     setMonth(false);
   };
 
+
+
   const onMonthChange = e => {
-    let choosenOne = e._d.getMonth() + 1;
-    if (choosenOne < 10) {
-      choosenOne = '0' + choosenOne;
+    let chosenOne = e._d.getMonth() + 1;
+    if (chosenOne < 10) {
+      chosenOne = '0' + chosenOne;
     }
-    console.log(choosenOne.toString());
-    setMonthAmount(choosenOne.toString());
-    setMonthTime(choosenOne.toString());
-    setOpenCalendar(false);
+    setMonthAmount(chosenOne.toString());
+    setMonthTime(chosenOne.toString());
+    setOpenCalendar(false); // Close the calendar after picking a date
+     setTimeout(() => {
+       setMonth(false);
+     }, 500);
   };
 
   const onYearChange = e => {
-    const choosenOne = e._d.getFullYear().toString();
-    setYearAmount(choosenOne);
-    console.log(choosenOne.toString());
-    setYearTime(choosenOne.toString());
-    setOpenCalendar(false);
+    const chosenOne = e._d.getFullYear().toString();
+    setYearAmount(chosenOne);
+    setYearTime(chosenOne.toString());
+    setOpenCalendar(false); // Close the calendar after picking a date
+    setTimeout(() => {
+      setYear(false);
+    }, 500);
   };
+
+
 
   const isValidData = data => {
     const currentDate = new Date();
