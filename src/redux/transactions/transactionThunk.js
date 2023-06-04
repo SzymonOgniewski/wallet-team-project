@@ -51,6 +51,17 @@ export const getTransactionCategories = createAsyncThunk(
   }
 );
 
-
-
-
+export const fetchTransactionsSummary = createAsyncThunk(
+  'transactions/fetchTransactionsSummary',
+  async ({ year, month }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `/api/transactions-summary?year=${year}&month=${month}`
+      );
+      console.log(response.data.data.response);
+      return response.data.data.response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
