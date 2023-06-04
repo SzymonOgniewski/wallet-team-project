@@ -34,12 +34,6 @@ const AddTransaction = ({ closeModal }) => {
     }),
     onSubmit: ({ amount, date, transactionCategory, comment }) => {
       const dateFormated = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSZ');
-      console.log({
-        amount: amount,
-        transactionDate: dateFormated,
-        categoryId: transactionCategory,
-        comment: comment,
-      });
       comment === ''
         ? dispatch(
             addNewTransaction({
