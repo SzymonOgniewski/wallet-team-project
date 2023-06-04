@@ -47,7 +47,7 @@ const HomeTab = () => {
       </div>
       <div className={styles.navHeight}>
         {data.length === 0 ? (
-          <div className={styles.noData}>No transactions found.</div>
+          <div className={`${styles.noData} ${styles.circeBoldBlack18px}`}>No transactions found.</div>
         ) : (
           data.map(item => (
             <div className={styles.navbar1} key={item._id}>
