@@ -19,7 +19,7 @@ const HomeTab = () => {
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
-  console.log(data);
+
   return (
     <div className={styles.group306}>
       <div
