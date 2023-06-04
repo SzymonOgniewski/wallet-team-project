@@ -33,29 +33,29 @@ const StatisticContainer = () => {
   }, [year, month]);
 
 
-  const MakeStatistic = (categories, details) => {
-    if (categories && details) {
-      const statistic = categories.map(category => {
-        const value = details.find(detail => detail.category === category.name);
-        if (!value) {
-          return { title: category.name, value: 0, color: category.color };
-        }
-        return {
-          title: category.name,
-          value: value.sum,
-          color: category.color,
-        };
-      });
-      return statistic;
-    }
-    return [];
-  };
+  // const MakeStatistic = (categories, details) => {
+  //   if (categories && details) {
+  //     const statistic = categories.map(category => {
+  //       const value = details.find(detail => detail.category === category.name);
+  //       if (!value) {
+  //         return { title: category.name, value: 0, color: category.color };
+  //       }
+  //       return {
+  //         title: category.name,
+  //         value: value.sum,
+  //         color: category.color,
+  //       };
+  //     });
+  //     return statistic;
+  //   }
+  //   return [];
+  // };
 
   return (
     <div className={css.container}>
       <div className={css.diagramContainer}>
       <h1>Statistics</h1>
-      <ChartDiagram statistic={MakeStatistic()} />
+      <ChartDiagram statistic={data} />
       </div>
       <div className={css.tableContainer}>
         <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
