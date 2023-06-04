@@ -176,3 +176,29 @@
     height: 50px;
   }
 }
+
+.error {
+  color: #ff6596;
+  width: 400px;
+  transform: translate(64px, -30px);
+  font-family: Poppins;
+  font-size: 13px;
+  margin: 0px;
+  text-align: center;
+}
+
+.error1 {
+  color: #ff6596;
+  transform: translate(0px, -30px);
+  font-family: Poppins;
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .error {  
+  width: 270px;
+  transform: translate(64px, -30px);
+  text-align: center;
+}
+}

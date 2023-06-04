@@ -79,14 +79,14 @@ const HomeTab = () => {
                 } ${item.type === 'INCOME' ? styles.plus : ''}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.categoryName}ff
+                  {item.categoryName ? item.categoryName : 'Other'}
                 </span>
               </div>
               <div
                 className={`${styles.navbarLinkGiftForYourWife} ${styles.circeRegularNormalBlack16px}`}
               >
                 <span className={styles.circeRegularNormalBlack16px}>
-                  {item.comment}ff
+                  {item.comment ? item.comment : "No comment"}ff
                 </span>
               </div>
               <div
