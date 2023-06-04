@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchTransactionsSummary } from '../../../redux/transactions/transactionThunk';
 
 const StatisticsTable = () => {
-  //w konsoli przeglądarki wywala błąd
   const dispatch = useDispatch();
+  
   const income = useSelector(state => state.transactions.summary.incomeSummary);
-  const expenses = useSelector(
-    state => state.transactions.summary.expenseSummary
-  );
+  
+  const expenses = useSelector(state => state.transactions.summary.expenseSummary);
+ 
   let transactionsSummary = useSelector(
     state => state.transactions.summary.categoriesSummary
   );
@@ -17,10 +17,7 @@ const StatisticsTable = () => {
   useEffect(() => {
     dispatch(fetchTransactionsSummary({ year: 2023, month: '6' }));
   }, [dispatch]);
-  //const tableForMap = statistic.categoriesSummary
 
-  //Mock tabela widzać że działa i ładnie się wyświetla
-  // console.log(transactionsSummary);
   const tab = [
     { title: 'default transaction', value: 8700, color: '#FED057' },
     { title: 'Main expenses', value: 8700, color: '#FED057' },
@@ -36,10 +33,8 @@ const StatisticsTable = () => {
 
   const getTitleColor = title => {
     const item = tab.find(item => item.title === title);
-    return item ? item.color : "red";
+    return item ? item.color : 'red';
   };
-
-
 
   return (
     <div>
@@ -66,7 +61,7 @@ const StatisticsTable = () => {
                 <div className={css.statisticWrappers}>
                   <div
                     className={css.statisticColors}
-                    style={{ backgroundColor: getTitleColor(item.name) }} // Kolor można próbować dodać do tabeli albo renderować np na podstawie typu
+                    style={{ backgroundColor: getTitleColor(item.name) }}
                   ></div>
                   <p className={css.categoryText}>{item.name}</p>
                 </div>
