@@ -200,3 +200,8 @@ margin-left: 17px;
     margin-left: 2px;
   }
 }
+
+.noData{ color: #ff6596;  
+  font-family: Poppins;
+  font-size: 18px;
+  text-align: center;}

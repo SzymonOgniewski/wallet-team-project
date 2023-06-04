@@ -1,14 +1,26 @@
+import React, { useEffect } from 'react';
 import css from './StatisticsTable.module.css';
-//import { red } from '@mui/material/colors';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchTransactionsSummary } from '../../../redux/transactions/transactionThunk';
 
 const StatisticsTable = () => {
   //w konsoli przeglądarki wywala błąd
-  const income = state => state.transactions.incomeSummary;
-  const expenses = state => state.transactions.expenseSummary;
-   
+  const dispatch = useDispatch();
+  const income = useSelector(state => state.transactions.summary.incomeSummary);
+  const expenses = useSelector(
+    state => state.transactions.summary.expenseSummary
+  );
+  let transactionsSummary = useSelector(
+    state => state.transactions.summary.categoriesSummary
+  );
+  if (!transactionsSummary) transactionsSummary = [];
+  useEffect(() => {
+    dispatch(fetchTransactionsSummary({ year: 2023, month: '6' }));
+  }, [dispatch]);
   //const tableForMap = statistic.categoriesSummary
 
   //Mock tabela widzać że działa i ładnie się wyświetla
+  console.log(transactionsSummary);
   const tab = [
     { title: 'Main expenses', value: 8700, color: '#FED057' },
     { title: 'Products', value: 3800, color: '#FFD8D0' },
@@ -20,6 +32,13 @@ const StatisticsTable = () => {
     { title: 'Leisure', value: 123, color: '#24CCA7' },
     { title: 'Other expenses', value: 610, color: '#00AD84' },
   ];
+
+  const getTitleColor = title => {
+    const item = tab.find(item => item.title === title);
+    return item ? item.color : "red";
+  };
+
+
 
   return (
     <div>
@@ -46,7 +65,7 @@ const StatisticsTable = () => {
                 <div className={css.statisticWrappers}>
                   <div
                     className={css.statisticColors}
-                    style={{ backgroundColor: item.color }} // Kolor można próbować dodać do tabeli albo renderować np na podstawie typu
+                    style={{ backgroundColor: getTitleColor(item.title) }} // Kolor można próbować dodać do tabeli albo renderować np na podstawie typu
                   ></div>
                   <p className={css.categoryText}>{item.title}</p>
                 </div>

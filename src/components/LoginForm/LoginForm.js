@@ -69,7 +69,7 @@ export const LoginForm = () => {
         </label>
         <div className={css.containerButton}>
           {formik.touched.password && formik.errors.password ? (
-            <div className={css.error}>{formik.errors.password}</div>
+            <div className={css.error1}>{formik.errors.password}</div>
           ) : null}
 
           {isLoggedIn ? (
