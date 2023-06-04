@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from 'react-redux';
 import { toggleTransactionModal } from '../../redux/data/globalSlice';
 import { getIsTransactionModalOpen } from 'redux/Selectors';
 import AddTransaction from 'components/AddTransaction/AddTransaction';
-import { getTransactionCategories } from 'redux/transactions/transactionThunk';
 
 export function ButtonAddTransactions() {
   const dispatch = useDispatch();
@@ -18,7 +17,6 @@ export function ButtonAddTransactions() {
         aria-label="add transaction button"
         onClick={() => {
           dispatch(toggleTransactionModal());
-          dispatch(getTransactionCategories());
         }}
       >
         <BsFillPlusCircleFill
