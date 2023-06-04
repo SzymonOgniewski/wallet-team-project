@@ -51,6 +51,33 @@ export const getTransactionCategories = createAsyncThunk(
   }
 );
 
+ export const fetchTransactionsSummary = createAsyncThunk(
+   'transactions/fetchTransactionsSummary',
+   async ({ year, month }, thunkAPI) => {
+     try {
+       const response = await axios.get(
+         `/api/transactions-summary?year=${year}&month=${month}`
+       );
+       console.log(response.data.data.response);
+       return response.data.data.response;
+     } catch (error) {
+       return thunkAPI.rejectWithValue(error.message);
+     }
+   }
+ );
 
-
-
+export const editTransaction = createAsyncThunk(
+  'transactions/editTransaction',
+  async (updatedTransaction, { rejectWithValue }) => {
+    try {
+      const response = await axios.put(
+        `/api/transactions/${updatedTransaction.id}`,
+        updatedTransaction
+      );
+      console.log(updatedTransaction);
+      return response.data;
+    } catch (e) {
+      return rejectWithValue(e);
+    }
+  }
+);
