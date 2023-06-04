@@ -7,7 +7,7 @@ import Vector7 from './vector7.png';
 // const dispatch = useDispatch();
 // const transactions = useSelector(getTransaction); tutaj pobieramy dane ze stora
 function CurrencyComponent() {
-  const [currencyData, setCurrencyData] = useState(null);
+  const [currencyData, setCurrencyData] = useState({ usd: 0, eur: 0 });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -89,12 +89,12 @@ function CurrencyComponent() {
               </div>
               <div className={styles.text1}>
                 <span className={styles.circeRegularNormalWhite16px}>
-                  {currency.bid.toFixed(2)}
+                  {currency?.bid?.toFixed(2) || 'no data'}
                 </span>
               </div>
               <div className={styles.text3}>
                 <span className={styles.circeRegularNormalWhite16px}>
-                  {currency.ask.toFixed(2)}
+                  {currency?.ask?.toFixed(2) || 'no data'}
                 </span>
               </div>
             </div>
