@@ -39,6 +39,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     console.log(choosenOne.toString());
     setMonthAmount(choosenOne.toString());
     setMonthTime(choosenOne.toString());
+    setOpenCalendar(false);
   };
 
   const onYearChange = e => {
@@ -46,6 +47,7 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
     setYearAmount(choosenOne);
     console.log(choosenOne.toString());
     setYearTime(choosenOne.toString());
+    setOpenCalendar(false);
   };
 
   const isValidData = data => {
