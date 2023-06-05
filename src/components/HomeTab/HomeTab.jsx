@@ -3,6 +3,7 @@ import styles from './HomeTabComponent.module.css';
 import edit from './edit.png';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getIsLoading } from 'redux/transactions/transactionSelectors';
 import {
   fetchTransactions,
   deleteSelectedTransaction,
@@ -11,15 +12,16 @@ import { toggleTransactionEditModal } from 'redux/data/globalSlice';
 import { getIsEditTransactionModalOpen } from 'redux/Selectors';
 import EditTransaction from 'components/EditTransaction/EditTransaction';
 // import { getTransactions } from 'redux/transactions/transactionSelectors';
-
+import { Box, Spinner, AbsoluteCenter } from '@chakra-ui/react';
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
+  const isLoading = useSelector(getIsLoading);
   const [selectedTransactionId, setSelectedTransactionId] = useState(null);
   if (!data) data = [];
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
-  };  
+  };
   const isTransactionEditModalOpen = useSelector(getIsEditTransactionModalOpen);
   // const transactions = useSelector(getTransactions);
   useEffect(() => {
@@ -150,7 +152,20 @@ const HomeTab = () => {
             </div>
           ))
         )}
-      </div>
+      </div>{' '}
+      {isLoading && (
+        <Box position="relative" h="100px">
+          <AbsoluteCenter p="48" color="white" axis="both">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+          </AbsoluteCenter>
+        </Box>
+      )}
     </div>
   );
 };
