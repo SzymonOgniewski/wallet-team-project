@@ -1,3 +1,4 @@
+/* Common Styles */
 .valignTextMiddle {
   display: flex;
   flex-direction: column;
@@ -8,6 +9,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  max-width: 100%; /* Adjust the max-width value as needed */
 }
 
 .navHeight {
@@ -15,71 +17,61 @@
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  table-layout: fixed;
 }
 
-.navbarLinkContainer {
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeaderRow {
   background-color: var(--white);
   border-radius: 30px;
-  display: flex;
-  padding: 15px 20px;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 715px;
-  width: fit-content;
-  margin-bottom: 20px;
 }
 
-.navbar1 {
-  display: flex;
-  align-items: center;
-  padding: 15px 0px;
-  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
-  border-bottom: 1px solid #dcdcdf;
-  border: none;
-  min-width: 620px;
-  margin-left: 20px;
-  width: 715px;
+.tableHeaderCell {
+  padding: 10px 20px;
+  text-align: left;
 }
 
-.navbarLinkContainer > div,
-.navbar1 > div {
-  flex: 1;
+.tableHeaderCell:first-child {
+  padding-left: 40px;
 }
 
-.navbarLinkCategory {
-  margin-right: 10px;
+.tableCell {
+  padding: 10px 20px;
+  text-align: left;
 }
 
+.tableRow:nth-child(even) {
+  background-color: #f6f6f6;
+}
 
 .noData {
   margin-left: 20px;
   margin-top: 10px;
+  color: #ff6596;
+  font-family: Poppins;
+  font-size: 18px;
+  text-align: center;
 }
 
 .btn {
-  flex-basis: 26.66%; /* Set an equal width for each column */
+  background-color: var(--caribbean-green);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  cursor: pointer;
+  margin-left: auto;
 }
 
-.left {
-  margin-left: 17px;
+.btn:hover {
+  background-color: var(--caribbean-green-hover);
 }
 
-.circeRegularNormalWhite14px {
-  color: var(--white);
-  font-size: var(--font-size-s);
-  font-weight: 400;
-  font-style: normal;
-}
-
-.circeRegularNormalBlack16px {
-  color: var(--black);
-  font-size: var(--font-size-m);
-  font-weight: 400;
-  font-style: normal;
-}
-
-.circeBoldBlack18px {
+.circeBoldBlack18px,
+.circeBoldBlack18pxDelete {
   color: var(--black);
   font-size: var(--font-size-1);
   font-weight: 700;
@@ -88,11 +80,6 @@
 }
 
 .circeBoldBlack18pxDelete {
-  color: var(--black);
-  font-size: var(--font-size-1);
-  font-weight: 700;
-  font-style: normal;
-  flex-grow: 1;
   color: white;
 }
 
@@ -110,13 +97,14 @@
   font-style: normal;
 }
 
-.circeBoldWhite18px {
-  color: var(--white);
-  font-size: var(--font-size-1);
-  font-weight: 700;
+.circeRegularNormalBlack16px {
+  color: var(--black);
+  font-size: var(--font-size-m);
+  font-weight: 400;
   font-style: normal;
 }
 
+.circeRegularNormalWhite14px,
 .circeRegularNormalWhite16px {
   color: var(--white);
   font-size: var(--font-size-m);
@@ -124,53 +112,79 @@
   font-style: normal;
 }
 
-.navbarLinkGiftForYourWife {
+.vector1 {
   margin-left: 10px;
-}
-
-.btn {
-  align-items: center;
-  background-color: var(--caribbean-green);
-  border-radius: 18px;
-  display: flex;
-  justify-content: center;
-  min-width: 67px;
-  padding: 3px 12px;
-}
-
-.delete {
-  letter-spacing: 0;
-  line-height: normal;
-  min-height: 18px;
-  text-align: center;
-  width: 43px;
-  cursor: pointer;
-}
-
-.edit {
-  height: 14px;
-  width: 14px;
-  transform: translateX(-20px);
-  cursor: pointer;
-}
-
-.plus {
-  margin-left: 15px;
 }
 
 .editionsGroup {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.vector1 {
-  height: 1px;
+.edit {
+  cursor: pointer;
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
-  .circeRegularNormalBlack16px {
-    flex-basis: 16.66%; /* Set an equal width for each column */
+.btn:hover {
+  background-color: var(--strawberry);
+}
+
+/* Responsive Media Queries */
+
+@media screen and (max-width: 1279px) {
+  .group306 {
+    margin-left: 0;
+    max-width: 100%; /* Adjust the max-width value as needed */
+  }
+
+  .center {
+    text-align: none;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    padding: 10px 12px;
+  }
+}
+
+
+
+.btn:hover {
+  background-color: var(--strawberry);
+}
+/* Responsive Media Queries */
+
+@media screen and (max-width: 1279px) {
+  .group306 {
+    margin-left: 0;
+    max-width: 100%; /* Adjust the max-width value as needed */
+  }
+
+  .center{text-align: none;}
+
+  .tableHeaderCell,
+  .tableCell {
+    padding: 10px 12px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .navbar1 {
+    flex-direction: column;
+    min-width: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .navbarLinkContainer {
+    min-width: auto;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+ .center{text-align: none;}
+  .navbarLinkContainer > div,
+  .navbar1 > div {
+    flex: 1 1 100%; 
   }
 
   .navbarLinkPlace,
@@ -178,48 +192,52 @@
   .navbarLinkComment,
   .navbarLinkType,
   .navbarLinkCategory {
-    flex-basis: 16.66%; /* Set an equal width for each column */
+    flex-basis: 100%; 
+    text-align: center;
   }
 
-  .navbarLinkDate1,
-  .navbarLinkText1,
-  .navbarLinkOther,
-  .navbarLinkGiftForYourWife,
-  .navbarLinkPhone,
-  .vector1,
-  .btn {
-    flex-basis: 16.66%; /* Set an equal width for each column */
-  }
-}
-
-@media (min-width: 768px) and (max-width: 1279px) {
-}
-
-@media (max-width: 767px) {
   .group306 {
     margin-left: 0;
-    max-width: 280px;
-  }
-  .navbarLinkSum {
-    margin-left: 2px;
-  }
-  .navbarLinkContainer {
-    padding: 10px;
-  }
-  .navbarLinkType {
-    margin-left: 2px;
+    max-width: 100%; 
   }
 
-  .navbarLinkComment {
-    margin-left: 2px;
+  .tableHeaderRow,
+  .tableRow {
+    flex-direction: column;
+    border-radius: 30px;
+    margin-bottom: 10px;
   }
 
-  .navbarLinkCategory {
-    margin-left: 2px;
+  .tableHeaderCell,
+  .tableCell {
+    padding: 10px 12px;
+  }
+
+  .tableCell:last-child {
+    margin-bottom: 10px;
+  }
+
+  .editionsGroup {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+  .btn {
+    margin: 0;
+  }
+
+  .vector1 {
+    margin-left: 0;
+    margin-top: 10px;
   }
 }
+
 
 .noData{ color: #ff6596;  
   font-family: Poppins;
   font-size: 18px;
   text-align: center;}
+
+.center{text-align: center;}
+
