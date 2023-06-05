@@ -68,6 +68,7 @@
   .wrapperMonth {
     cursor: pointer;
     cursor: crosshair;
+    width: 177px;
   }
 
   .wrapperYear {

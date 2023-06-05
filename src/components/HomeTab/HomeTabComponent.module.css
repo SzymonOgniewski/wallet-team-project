@@ -233,5 +233,11 @@
   }
 }
 
+
+.noData{ color: #ff6596;  
+  font-family: Poppins;
+  font-size: 18px;
+  text-align: center;}
+
 .center{text-align: center;}
 
