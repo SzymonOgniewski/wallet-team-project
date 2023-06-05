@@ -1,5 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchBalance } from './financeThunks';
+import { fetchBalance } from './financeThunk';
+import {
+  editTransaction,
+  deleteSelectedTransaction,
+  addNewTransaction,
+} from '../transactions/transactionThunk';
 
 const initialState = {
   balance: 0,
@@ -34,7 +39,45 @@ const financeSlice = createSlice({
       .addCase(fetchBalance.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
-      });
+      })
+      .addCase(editTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.balance = action.payload.balanceAfter;
+        console.log('lolo');
+      })
+      .addCase(editTransaction.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(deleteSelectedTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        console.log(action.payload);
+        if (action.payload.type === 'INCOME') {
+          state.balance = state.balance - action.payload.amount;
+        } else {
+          state.balance = state.balance + action.payload.amount;
+        }
+      })
+      .addCase(deleteSelectedTransaction.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addCase(addNewTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        if (action.payload.type === 'INCOME') {
+          state.balance = state.balance + action.payload.amount;
+        } else {
+          state.balance = state.balance - action.payload.amount;
+        }
+      })
+      .addCase(addNewTransaction.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      })
+      .addDefaultCase((state, _action) => state);
   },
 });
 

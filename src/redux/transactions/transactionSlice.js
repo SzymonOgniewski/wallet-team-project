@@ -67,8 +67,14 @@ const transactionsSlice = createSlice({
       })
       .addCase(editTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;
-        state.balance = action.payload.balanceAfter;         
+        state.error = null;     
+         const transactionIndex = state.items.userTransactions.findIndex(
+           transaction =>
+             transaction.transactionId === action.payload.transactionId
+         );
+         if (transactionIndex !== -1) {
+           state.items.userTransactions[transactionIndex] = action.payload;
+         }
         
       })
       .addMatcher(isPendingAction, handlePendingState)
