@@ -91,7 +91,7 @@ const ChartDiagram = () => {
         options={options}
       />
       <p className={css.sumExpensesIntoDiagram}>
-        ₴{' '}
+        €{' '}
         {balance.toLocaleString('en-US', {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
