@@ -26,6 +26,11 @@ const transactionsPersistConfig = {
   storage,
   whitelist: ['list'],
 };
+const financePersistConfig = {
+  key: 'finance',
+  storage,
+  whitelist: ['balance'],
+};
 
 const authPersistConfig = {
   key: 'auth',
@@ -37,7 +42,7 @@ const rootReducer = {
   transactions: persistReducer(transactionsPersistConfig, transactionsReducer),
   auth: persistReducer(authPersistConfig, authReducer),
   global: globalReducer,
-  finance: financeReducer,
+  finance: persistReducer(financePersistConfig, financeReducer),
 };
 
 const Store = configureStore({

@@ -3,16 +3,20 @@ import styles from './HomeTabComponent.module.css';
 import edit from './edit.png';
 import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { getIsLoading } from 'redux/transactions/transactionSelectors';
 import {
   fetchTransactions,
   deleteSelectedTransaction,
-} from '../../redux//transactions/transactionThunk';
+} from '../../redux/transactions/transactionThunk';
 import { toggleTransactionEditModal } from 'redux/data/globalSlice';
 import { getIsEditTransactionModalOpen } from 'redux/Selectors';
 import EditTransaction from 'components/EditTransaction/EditTransaction';
 
+import { Box, Spinner, AbsoluteCenter } from '@chakra-ui/react';
+
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
+  const isLoading = useSelector(getIsLoading);
   const [selectedTransactionId, setSelectedTransactionId] = useState(null);
   if (!data) data = [];
   const dispatch = useDispatch();
@@ -26,8 +30,6 @@ const HomeTab = () => {
   }, [dispatch]);
 
   const isMobile = window.innerWidth <= 768; // Adjust the breakpoint as per your requirements
-  console.log(isMobile);
-   console.log(window.innerWidth);
 
   return (
     <div className={styles.group306}>
@@ -123,7 +125,7 @@ const HomeTab = () => {
                           alt="Vector 18"
                         />
                         {isTransactionEditModalOpen &&
-                          selectedTransactionId && (
+                          selectedTransactionId === item._id && (
                             <EditTransaction
                               transactionId={selectedTransactionId}
                               closeModal={() => {
@@ -244,15 +246,16 @@ const HomeTab = () => {
                         src={edit}
                         alt="Vector 18"
                       />
-                      {isTransactionEditModalOpen && selectedTransactionId && (
-                        <EditTransaction
-                          transactionId={selectedTransactionId}
-                          closeModal={() => {
-                            setSelectedTransactionId(null);
-                            dispatch(toggleTransactionEditModal());
-                          }}
-                        />
-                      )}
+                      {isTransactionEditModalOpen &&
+                        selectedTransactionId === item._id && (
+                          <EditTransaction
+                            transactionId={selectedTransactionId}
+                            closeModal={() => {
+                              setSelectedTransactionId(null);
+                              dispatch(toggleTransactionEditModal());
+                            }}
+                          />
+                        )}
                       <div
                         className={styles.btn}
                         onClick={() => handleDelete(item._id)}
@@ -272,6 +275,19 @@ const HomeTab = () => {
             )}
           </tbody>
         </table>
+      )}
+      {isLoading && (
+        <Box position="relative" h="100px">
+          <AbsoluteCenter p="48" color="white" axis="both">
+            <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+            />
+          </AbsoluteCenter>
+        </Box>
       )}
     </div>
   );

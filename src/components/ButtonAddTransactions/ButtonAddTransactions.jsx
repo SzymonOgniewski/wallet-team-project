@@ -8,6 +8,9 @@ import AddTransaction from 'components/AddTransaction/AddTransaction';
 export function ButtonAddTransactions() {
   const dispatch = useDispatch();
   const isTransactionModalOpen = useSelector(getIsTransactionModalOpen);
+  const closeModal = () => {
+    dispatch(toggleTransactionModal());
+  };
 
   return (
     <>
@@ -28,13 +31,7 @@ export function ButtonAddTransactions() {
           }}
         />
       </button>
-      {isTransactionModalOpen && (
-        <AddTransaction
-          closeModal={() => {
-            dispatch(toggleTransactionModal());
-          }}
-        />
-      )}
+      {isTransactionModalOpen && <AddTransaction closeModal={closeModal} />}
     </>
   );
 }
