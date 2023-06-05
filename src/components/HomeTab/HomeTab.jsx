@@ -19,7 +19,7 @@ const HomeTab = () => {
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
-  };
+  };  
   const isTransactionEditModalOpen = useSelector(getIsEditTransactionModalOpen);
   const transactions = useSelector(getTransactions);
   useEffect(() => {

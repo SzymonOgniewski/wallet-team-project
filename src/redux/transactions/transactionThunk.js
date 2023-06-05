@@ -74,6 +74,7 @@ export const editTransaction = createAsyncThunk(
         `/api/transactions/${updatedTransaction.id}`,
         updatedTransaction
       );
+      console.log(response);
       console.log(updatedTransaction);
       return response.data;
     } catch (e) {
