@@ -30,14 +30,12 @@ export const addNewTransaction = createAsyncThunk(
   async (newTransaction, { rejectWithValue }) => {
     try {
       const response = await axios.post('/api/transactions', newTransaction);
-      console.log(newTransaction);
       return response.data;
     } catch (e) {
       return rejectWithValue(e);
     }
   }
 );
-
 
 export const getTransactionCategories = createAsyncThunk(
   'transactions/categories',
@@ -70,15 +68,18 @@ export const editTransaction = createAsyncThunk(
   'transactions/editTransaction',
   async (updatedTransaction, { rejectWithValue }) => {
     try {
-      const response = await axios.put(
+      const response = await axios.patch(
         `/api/transactions/${updatedTransaction.id}`,
         updatedTransaction
       );
       console.log(response);
-      console.log(updatedTransaction);
+      console.log(updatedTransaction.id);
       return response.data;
     } catch (e) {
-      return rejectWithValue(e);
+     
+      
+      console.log(updatedTransaction.id);
+       return rejectWithValue(e);
     }
   }
 );

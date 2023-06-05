@@ -39,7 +39,7 @@
   border: none;
   min-width: 620px;
   margin-left: 20px;
-  width: fit-content;
+  width: 715px;
 }
 
 .navbarLinkContainer > div,
@@ -48,12 +48,9 @@
 }
 
 .navbarLinkCategory {
-  margin-right: 75px;
+  margin-right: 10px;
 }
 
-.navbarLinkComment {
-  margin-right: 115px;
-}
 
 .noData {
   margin-left: 20px;
@@ -127,6 +124,10 @@
   font-style: normal;
 }
 
+.navbarLinkGiftForYourWife {
+  margin-left: 10px;
+}
+
 .btn {
   align-items: center;
   background-color: var(--caribbean-green);
@@ -143,12 +144,14 @@
   min-height: 18px;
   text-align: center;
   width: 43px;
+  cursor: pointer;
 }
 
 .edit {
   height: 14px;
   width: 14px;
   transform: translateX(-20px);
+  cursor: pointer;
 }
 
 .plus {

@@ -22,12 +22,12 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
   }, [dispatch, year, month, yearTime, monthTime]);
 
   const toggleMonth = () => {
-    setMonth(true);
+    setMonth(!month);
     setYear(false);
   };
 
   const toggleYear = () => {
-    setYear(true);
+    setYear(!year);
     setMonth(false);
   };
 

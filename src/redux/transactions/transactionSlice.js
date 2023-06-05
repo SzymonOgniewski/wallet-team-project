@@ -7,19 +7,26 @@ import {
   getTransactionCategories,
   editTransaction,
 } from './transactionThunk';
+import { setBalance } from 'redux/finance/financeSlice';
+
 const handlePendingState = state => {
   state.isLoading = true;
 };
+
 const handleRejection = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
+
 const initialTransactionsState = {
-  items: [],
+  items: {
+    userTransactions: [],
+  },
   summary: [],
   isLoading: false,
   error: null,
 };
+
 const isPendingAction = action => action.type.endsWith('pending');
 const isRejectedAction = action => action.type.endsWith('reject');
 
@@ -28,7 +35,6 @@ const transactionsSlice = createSlice({
   initialState: initialTransactionsState,
   extraReducers: builder => {
     builder
-
       .addCase(fetchTransactions.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -42,10 +48,17 @@ const transactionsSlice = createSlice({
       .addCase(addNewTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.items.userTransactions.push(action.payload);
       })
       .addCase(deleteSelectedTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        console.log(action.payload);
+        const index = state.items.userTransactions.findIndex(
+          transaction =>
+            transaction.transactionId === action.payload.transactionId
+        );
+        state.items.userTransactions.splice(index, 1);
       })
       .addCase(getTransactionCategories.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -54,7 +67,9 @@ const transactionsSlice = createSlice({
       })
       .addCase(editTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;        
+        state.error = null;
+        state.balance = action.payload.balanceAfter;         
+        
       })
       .addMatcher(isPendingAction, handlePendingState)
       .addMatcher(isRejectedAction, handleRejection)
