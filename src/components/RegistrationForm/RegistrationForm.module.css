@@ -16,11 +16,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .logo {
   margin-right: 15px;
+  margin-bottom: 35px;
 }
 
 .title {

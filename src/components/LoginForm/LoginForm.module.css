@@ -17,20 +17,21 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 60px;
-  padding-top: 40px;
+  margin-bottom: 30px;
+  padding-top: 30px;
 }
 
 .logo {
   margin-right: 15px;
+  margin-bottom: 35px;
 }
 
-.tittle {
+h1 {
   font-family: 'Poppins';
   font-weight: 700;
   font-size: 22px;
   line-height: 0.85;
-
+  
   color: #000000;
 }
 
