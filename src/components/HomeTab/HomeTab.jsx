@@ -10,7 +10,7 @@ import {
 import { toggleTransactionEditModal } from 'redux/data/globalSlice';
 import { getIsEditTransactionModalOpen } from 'redux/Selectors';
 import EditTransaction from 'components/EditTransaction/EditTransaction';
-import { getTransactions } from 'redux/transactions/transactionSelectors';
+// import { getTransactions } from 'redux/transactions/transactionSelectors';
 
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
@@ -21,7 +21,7 @@ const HomeTab = () => {
     dispatch(deleteSelectedTransaction(transactionId));
   };  
   const isTransactionEditModalOpen = useSelector(getIsEditTransactionModalOpen);
-  const transactions = useSelector(getTransactions);
+  // const transactions = useSelector(getTransactions);
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);

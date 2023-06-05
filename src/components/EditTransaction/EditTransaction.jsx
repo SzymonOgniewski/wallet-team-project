@@ -7,7 +7,6 @@ import * as Yup from 'yup';
 import Datetime from 'react-datetime';
 import 'react-datetime/css/react-datetime.css';
 import css from './EditTransaction.module.css';
-import { useCallback } from 'react';
 import {
   editTransaction,
   getTransactionCategories,

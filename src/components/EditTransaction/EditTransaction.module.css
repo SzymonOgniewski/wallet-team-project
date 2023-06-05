@@ -124,6 +124,7 @@ select {
   color: white;
   border: none;
   border-radius: 20px;
+  cursor: pointer;
 }
 .btnsContainer {
   display: flex;
@@ -131,6 +132,7 @@ select {
   justify-content: center;
   align-items: center;
   gap: 20px;
+  
 }
 .cancelBtn {
   width: 300px;
@@ -141,4 +143,5 @@ select {
   border-radius: 20px;
   color: #4a56e2;
   background-color: white;
+  cursor: pointer;
 }

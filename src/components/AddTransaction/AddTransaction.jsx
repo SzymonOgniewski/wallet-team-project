@@ -49,7 +49,8 @@ const AddTransaction = ({ closeModal }) => {
               categoryId: transactionCategory,
               comment: comment,
             })
-          );
+        );
+      closeModal();
     },
   });
   const handleChange = useCallback(

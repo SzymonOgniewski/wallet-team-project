@@ -7,7 +7,7 @@ import {
   getTransactionCategories,
   editTransaction,
 } from './transactionThunk';
-import { setBalance } from 'redux/finance/financeSlice';
+
 
 const handlePendingState = state => {
   state.isLoading = true;
@@ -67,16 +67,17 @@ const transactionsSlice = createSlice({
       })
       .addCase(editTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.error = null;     
-         const transactionIndex = state.items.userTransactions.findIndex(
-           transaction =>
-             transaction.transactionId === action.payload.transactionId
-         );
-         if (transactionIndex !== -1) {
-           state.items.userTransactions[transactionIndex] = action.payload;
-         }
-        
+        state.error = null;
+        const updatedTransaction = action.payload;
+        const transactionIndex = state.items.userTransactions.findIndex(
+          transaction => transaction._id === updatedTransaction._id
+        );
+
+        if (transactionIndex !== -1) {
+          state.items.userTransactions[transactionIndex] = updatedTransaction;
+        }
       })
+
       .addMatcher(isPendingAction, handlePendingState)
       .addMatcher(isRejectedAction, handleRejection)
       .addDefaultCase((state, _action) => state);
