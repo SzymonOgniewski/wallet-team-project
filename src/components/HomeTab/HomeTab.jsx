@@ -1,21 +1,27 @@
 import React, { useEffect } from 'react';
 import styles from './HomeTabComponent.module.css';
 import edit from './edit.png';
-
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchTransactions,
   deleteSelectedTransaction,
 } from '../../redux//transactions/transactionThunk';
+import { toggleTransactionEditModal } from 'redux/data/globalSlice';
+import { getIsEditTransactionModalOpen } from 'redux/Selectors';
+import EditTransaction from 'components/EditTransaction/EditTransaction';
+// import { getTransactions } from 'redux/transactions/transactionSelectors';
 
 const HomeTab = () => {
   let data = useSelector(state => state.transactions.items.userTransactions);
+  const [selectedTransactionId, setSelectedTransactionId] = useState(null);
   if (!data) data = [];
   const dispatch = useDispatch();
   const handleDelete = transactionId => {
     dispatch(deleteSelectedTransaction(transactionId));
-  };
-
+  };  
+  const isTransactionEditModalOpen = useSelector(getIsEditTransactionModalOpen);
+  // const transactions = useSelector(getTransactions);
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
@@ -110,11 +116,24 @@ const HomeTab = () => {
               </div>
               <div className={styles.editionsGroup}>
                 <img
+                  id={item._id}
                   className={styles.edit}
-                  onClick={() => console.log('modal edit open')}
+                  onClick={e => {
+                    setSelectedTransactionId(e.target.id);
+                    dispatch(toggleTransactionEditModal());
+                  }}
                   src={edit}
                   alt="Vector 18"
                 />
+                {isTransactionEditModalOpen && selectedTransactionId && (
+                  <EditTransaction
+                    transactionId={selectedTransactionId}
+                    closeModal={() => {
+                      setSelectedTransactionId(null);
+                      dispatch(toggleTransactionEditModal());
+                    }}
+                  />
+                )}
                 <div
                   className={styles.btn}
                   onClick={() => handleDelete(item._id)}

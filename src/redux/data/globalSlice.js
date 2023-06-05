@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialState = {
   isLoading: false,
   error: null,
-  isModalLogoutOpen: false,
+  isModalLogoutOpen: false,  
 };
 
 const globalSlice = createSlice({
@@ -17,9 +17,13 @@ const globalSlice = createSlice({
     toggleTransactionModal: (store, _) => {
       store.isTransactionModalOpen = !store.isTransactionModalOpen;
     },
+    toggleTransactionEditModal: (store, _) => {
+      store.isTransactionEditModalOpen = !store.isTransactionEditModalOpen;
+    },
   },
 });
 
-export const { toggleModal, toggleTransactionModal } = globalSlice.actions;
+export const { toggleModal, toggleTransactionModal, toggleTransactionEditModal } =
+  globalSlice.actions;
 
 export const globalReducer = globalSlice.reducer;

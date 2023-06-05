@@ -11,10 +11,12 @@
     background: transparent;
     border-radius: 30px;
     border: 1px solid #000000;
+    cursor: crosshair;
   }
 
   .wrapperYear {
     margin-top: 20px;
+    cursor: crosshair;
   }
 
   .calendarText {
@@ -42,11 +44,13 @@
   }
   .wrapperMonth {
     width: 140px;
+    cursor: crosshair;
   }
 
   .wrapperYear {
     margin-top: 0;
     margin-left: 16px;
+    cursor: crosshair;
   }
   .datetime {
     position: absolute;
@@ -63,10 +67,12 @@
 
   .wrapperMonth {
     cursor: pointer;
+    cursor: crosshair;
   }
 
   .wrapperYear {
     margin-left: 32px;
     cursor: pointer;
+    cursor: crosshair;
   }
 }

@@ -5,14 +5,19 @@ import {
   deleteSelectedTransaction,
   fetchTransactionsSummary,
   getTransactionCategories,
+  editTransaction,
 } from './transactionThunk';
+
+
 const handlePendingState = state => {
   state.isLoading = true;
 };
+
 const handleRejection = (state, action) => {
   state.isLoading = false;
   state.error = action.payload;
 };
+
 const initialTransactionsState = {
   items: {
     userTransactions: [],
@@ -21,6 +26,7 @@ const initialTransactionsState = {
   isLoading: false,
   error: null,
 };
+
 const isPendingAction = action => action.type.endsWith('pending');
 const isRejectedAction = action => action.type.endsWith('reject');
 
@@ -29,7 +35,6 @@ const transactionsSlice = createSlice({
   initialState: initialTransactionsState,
   extraReducers: builder => {
     builder
-
       .addCase(fetchTransactions.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
@@ -60,6 +65,19 @@ const transactionsSlice = createSlice({
         state.error = null;
         state.categories = action.payload;
       })
+      .addCase(editTransaction.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        const updatedTransaction = action.payload;
+        const transactionIndex = state.items.userTransactions.findIndex(
+          transaction => transaction._id === updatedTransaction._id
+        );
+
+        if (transactionIndex !== -1) {
+          state.items.userTransactions[transactionIndex] = updatedTransaction;
+        }
+      })
+
       .addMatcher(isPendingAction, handlePendingState)
       .addMatcher(isRejectedAction, handleRejection)
       .addDefaultCase((state, _action) => state);

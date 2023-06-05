@@ -103,6 +103,13 @@
   font-style: normal;
 }
 
+.circeBoldCaribbeanGreen16px {
+  color: var(--caribbean-green);
+  font-size: var(--font-size-m);
+  font-weight: 700;
+  font-style: normal;
+}
+
 .circeBoldWhite18px {
   color: var(--white);
   font-size: var(--font-size-1);
