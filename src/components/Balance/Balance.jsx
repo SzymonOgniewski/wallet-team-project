@@ -34,7 +34,7 @@ const TotalBalanceComponent = () => {
           className={`${styles.phone} ${styles.valignTextMiddle} ${styles.poppinsNormalBlack30px}`}
         >
           <span>
-            <span className={styles.poppinsBoldBlack30px}>₴ </span>
+            <span className={styles.poppinsBoldBlack30px}>€ </span>
             <span className={styles.poppinsBoldBlack30px}>
               {formattedBalance}
             </span>
