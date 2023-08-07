@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-axios.defaults.baseURL = 'https://wallet-dybb.onrender.com/';
+axios.defaults.baseURL = 'https://wallet-febk.onrender.com';
 export const fetchTransactions = createAsyncThunk(
   'transactions/fetchAll',
   async (_, thunkAPI) => {
@@ -49,20 +49,20 @@ export const getTransactionCategories = createAsyncThunk(
   }
 );
 
- export const fetchTransactionsSummary = createAsyncThunk(
-   'transactions/fetchTransactionsSummary',
-   async ({ year, month }, thunkAPI) => {
-     try {
-       const response = await axios.get(
-         `/api/transactions-summary?year=${year}&month=${month}`
-       );
-       console.log(response.data.data.response);
-       return response.data.data.response;
-     } catch (error) {
-       return thunkAPI.rejectWithValue(error.message);
-     }
-   }
- );
+export const fetchTransactionsSummary = createAsyncThunk(
+  'transactions/fetchTransactionsSummary',
+  async ({ year, month }, thunkAPI) => {
+    try {
+      const response = await axios.get(
+        `/api/transactions-summary?year=${year}&month=${month}`
+      );
+      console.log(response.data.data.response);
+      return response.data.data.response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 export const editTransaction = createAsyncThunk(
   'transactions/editTransaction',
@@ -76,10 +76,8 @@ export const editTransaction = createAsyncThunk(
       console.log(updatedTransaction.id);
       return response.data;
     } catch (e) {
-     
-      
       console.log(updatedTransaction.id);
-       return rejectWithValue(e);
+      return rejectWithValue(e);
     }
   }
 );

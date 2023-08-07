@@ -3,7 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-axios.defaults.baseURL = 'https://wallet-dybb.onrender.com/';
+axios.defaults.baseURL = 'https://wallet-febk.onrender.com';
 
 // Utility to add JWT
 export const setAuthHeader = token => {

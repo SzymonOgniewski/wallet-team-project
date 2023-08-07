@@ -22,7 +22,7 @@ const StatisticContainer = () => {
           return;
         }
         const response = await axios.get(
-          `https://wallet-dybb.onrender.com/api/transactions-summary?year=${year}&month=${month}`
+          `https://wallet-febk.onrender.com/api/transactions-summary?year=${year}&month=${month}`
         );
         setData(response.data.data.response);
       } catch (error) {
