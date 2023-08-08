@@ -43,8 +43,7 @@ const financeSlice = createSlice({
       .addCase(editTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.balance = action.payload.balanceAfter;
-        console.log('lolo');
+        state.balance = action.payload.balanceAfter;       
       })
       .addCase(editTransaction.rejected, (state, action) => {
         state.isLoading = false;
