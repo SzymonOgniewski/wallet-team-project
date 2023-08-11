@@ -29,27 +29,29 @@ const AddTransaction = ({ closeModal }) => {
     },
     validationSchema: Yup.object({
       amount: Yup.number().required('Amount is required'),
-      date: Yup.date(),
+      // date: Yup.date(),
       transactionCategory: Yup.string(),
     }),
     onSubmit: ({ amount, date, transactionCategory, comment }) => {
+      console.log(date);
       const dateFormated = moment(date).format('YYYY-MM-DDTHH:mm:ss.SSSZ');
+      console.log(dateFormated);
       comment === ''
         ? dispatch(
             addNewTransaction({
               amount: amount,
-              transactionDate: dateFormated,
+              date: dateFormated,
               categoryId: transactionCategory,
             })
           )
         : dispatch(
             addNewTransaction({
               amount: amount,
-              transactionDate: dateFormated,
+              date: dateFormated,
               categoryId: transactionCategory,
               comment: comment,
             })
-        );
+          );
       closeModal();
     },
   });
@@ -189,6 +191,7 @@ const AddTransaction = ({ closeModal }) => {
                         {...field}
                         onChange={value => {
                           formik.values.date = value;
+                          console.log(value);
                           field.onChange({
                             target: { name: field.name, value },
                           });

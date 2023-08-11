@@ -30,7 +30,7 @@ const HomeTab = () => {
   }, [dispatch]);
 
   const isMobile = window.innerWidth <= 768; // Adjust the breakpoint as per your requirements
-
+  console.log(data);
   return (
     <div className={styles.group306}>
       {isMobile ? (
@@ -70,13 +70,11 @@ const HomeTab = () => {
                   <tr className={styles.tableRow} key={item._id}>
                     <td className={styles.tableCell}>
                       <span className={styles.circeRegularNormalBlack16px}>
-                        {new Date(item.transactionDate)
-                          .toLocaleDateString('pl-PL', {
-                            day: '2-digit',
-                            month: '2-digit',
-                            year: 'numeric',
-                          })
-                          .replace(/\//g, '.')}
+                        {new Date(item.date).toLocaleDateString('pl-PL', {
+                          day: '2-digit',
+                          month: '2-digit',
+                          year: 'numeric',
+                        })}
                       </span>
                     </td>
                     <td className={`${styles.tableCell} ${styles.center}`}>
@@ -194,7 +192,7 @@ const HomeTab = () => {
                 <tr className={styles.tableRow} key={item._id}>
                   <td className={styles.tableCell}>
                     <span className={styles.circeRegularNormalBlack16px}>
-                      {new Date(item.transactionDate)
+                      {new Date(item.date)
                         .toLocaleDateString('pl-PL', {
                           day: '2-digit',
                           month: '2-digit',
