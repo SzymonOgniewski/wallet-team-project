@@ -17,7 +17,7 @@ const StatisticsTable = () => {
   );
   if (!transactionsSummary) transactionsSummary = [];
   useEffect(() => {
-    dispatch(fetchTransactionsSummary({ year: 2023, month: '6' }));
+    dispatch(fetchTransactionsSummary({ year: 2023, month: '8' }));
   }, [dispatch]);
 
   const tab = [

@@ -56,7 +56,7 @@ const transactionsSlice = createSlice({
         console.log(action.payload);
         const index = state.items.userTransactions.findIndex(
           transaction =>
-            transaction.transactionId === action.payload.transactionId
+            transaction.date === action.payload.date
         );
         state.items.userTransactions.splice(index, 1);
       })

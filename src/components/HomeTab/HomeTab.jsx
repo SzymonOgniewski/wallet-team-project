@@ -25,6 +25,33 @@ const HomeTab = () => {
   };
   const isTransactionEditModalOpen = useSelector(getIsEditTransactionModalOpen);
 
+  const catTable = [
+    { _id: '6471096a9af3d469961187e6', name: 'Main expenses', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187e7', name: 'Products', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187e8', name: 'Car', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187e9', name: 'Self care', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187ea', name: 'Child care', type: 'EXPENSE' },
+    {
+      _id: '6471096a9af3d469961187eb',
+      name: 'Household products',
+      type: 'EXPENSE',
+    },
+    { _id: '6471096a9af3d469961187ec', name: 'Education', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187ed', name: 'Leisure', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187ef', name: 'Entertainment', type: 'EXPENSE' },
+    { _id: '6471096a9af3d469961187f0', name: 'Income', type: 'INCOME' },
+    {
+      _id: '6473544cf09b05df28a84d32',
+      name: 'Other Expenses',
+      type: 'EXPENSE',
+    },
+  ];
+
+ const getTitleCategoryName = id => {
+   const item = catTable.find(item => item._id === id);
+   return item ? item.name : 'default';
+  };
+
   useEffect(() => {
     dispatch(fetchTransactions());
   }, [dispatch]);
@@ -86,7 +113,9 @@ const HomeTab = () => {
                     </td>
                     <td className={styles.tableCell}>
                       <span className={styles.circeRegularNormalBlack16px}>
-                        {item.categoryName ? item.categoryName : 'Other'}
+                        {item.categoryId
+                          ? getTitleCategoryName(item.categoryId)
+                          : 'Other'}
                       </span>
                     </td>
                     <td className={styles.tableCell}>
@@ -208,7 +237,9 @@ const HomeTab = () => {
                   </td>
                   <td className={styles.tableCell}>
                     <span className={styles.circeRegularNormalBlack16px}>
-                      {item.categoryName ? item.categoryName : 'Other'}
+                      {item.categoryId
+                        ? getTitleCategoryName(item.categoryId)
+                        : 'Other'}
                     </span>
                   </td>
                   <td className={styles.tableCell}>
