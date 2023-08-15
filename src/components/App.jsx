@@ -7,6 +7,7 @@ import { Home } from 'pages/HomePage/HomePage';
 import { Diagram } from 'pages/StatisticsPage/StatisticsPage';
 import { Currency } from 'pages/CurrencyPage/CurrencyPage';
 import { DashboardPage } from 'pages/DashboardPage/DashboardPage';
+import VerificationSuccess from './VerificationSuccess/VerificationSuccess';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { refreshUser } from 'redux/auth/AuthThunk';
@@ -76,6 +77,10 @@ export const App = () => {
             element={
               <ProtectedRoute component={<Currency />} redirectTo={'/login'} />
             }
+          />
+          <Route
+            path="/verification-success/:token"
+            element={<VerificationSuccess />}
           />
         </Routes>
       </div>
