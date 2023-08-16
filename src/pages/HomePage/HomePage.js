@@ -56,7 +56,6 @@ export const Home = () => (
                 <CurrencyComponent />
               </div>
               <div>
-                {' '}
                 <HomeTab />
               </div>
             </div>
