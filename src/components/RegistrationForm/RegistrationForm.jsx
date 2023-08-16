@@ -133,6 +133,8 @@ export const RegistrationForm = () => {
                 name="password"
                 placeholder="Password"
                 id="password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#@$!%&*?])[A-Za-z\\d#@$!%&*?]{8,30}$"
+                title="Your password must contain atleast 1 lower case letter, 1 upper case letter, one number and one special character. "
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
