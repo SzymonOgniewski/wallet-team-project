@@ -11,8 +11,17 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import styles from './RegistrationForm.module.css';
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  AlertDescription,
+  Box,
+  CloseButton,
+} from '@chakra-ui/react';
 import Notiflix from 'notiflix';
 import { Notify } from 'notiflix';
+
 import logo from '../../images/RegistrationPage/logo.svg';
 import { register } from '../../redux/auth/AuthThunk';
 import { PasswordStrength } from './PasswordStrength';
@@ -20,6 +29,7 @@ import { PasswordStrength } from './PasswordStrength';
 export const RegistrationForm = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [registrationError, setRegistrationError] = useState(false);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -46,9 +56,13 @@ export const RegistrationForm = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleSubmit = ({ name, email, password }) => {
-    dispatch(register({ name, email, password }));
-    navigate('/login');
+  const handleSubmit = async ({ name, email, password }) => {
+    try {
+      await dispatch(register({ name, email, password })).unwrap();
+      navigate('/login');
+    } catch (error) {
+      setRegistrationError(true);
+    }
   };
 
   return (
@@ -255,6 +269,24 @@ export const RegistrationForm = () => {
                 </button>
               </Link>
             </div>
+            {registrationError && (
+              <Alert status="error">
+                <AlertIcon />
+                <Box>
+                  <AlertTitle>Registration Error!</AlertTitle>
+                  <AlertDescription>
+                    Registration failed. Please try again
+                  </AlertDescription>
+                </Box>
+                <CloseButton
+                  alignSelf="flex-start"
+                  position="relative"
+                  right={-1}
+                  top={-1}
+                  onClick={() => setRegistrationError(false)}
+                />
+              </Alert>
+            )}
           </Form>
         </div>
       )}
