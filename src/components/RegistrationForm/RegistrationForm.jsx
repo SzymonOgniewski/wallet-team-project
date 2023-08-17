@@ -10,7 +10,6 @@ import LockIcon from '@mui/icons-material/Lock';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-
 import styles from './RegistrationForm.module.css';
 import {
   Alert,
@@ -20,6 +19,9 @@ import {
   Box,
   CloseButton,
 } from '@chakra-ui/react';
+import Notiflix from 'notiflix';
+import { Notify } from 'notiflix';
+
 import logo from '../../images/RegistrationPage/logo.svg';
 import { register } from '../../redux/auth/AuthThunk';
 import { PasswordStrength } from './PasswordStrength';
@@ -36,15 +38,17 @@ export const RegistrationForm = () => {
       .email('Enter the valid email')
       .required('The email field is required'),
     password: Yup.string()
-      .min(6, 'The password must be minimum six symbols')
-      .max(12, 'The password should not be more than 12 symbols')
+      .matches(
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/,
+        `Invalid password`
+      )
       .required('The password field is required'),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref('password')], 'Passwords must match')
       .required('Confirm your password'),
     name: Yup.string()
       .min(1, 'The name must be consist of at least 1 symbol')
-      .max(12, 'The name should not be more than 12 symbols')
+      .max(15, 'The name should not be more than 15 symbols')
       .required('Enter your first name'),
   });
 
@@ -131,7 +135,31 @@ export const RegistrationForm = () => {
                     fontSize: '13px',
                   }}
                 >
-                  {errors.password}
+                  {errors.password === 'Invalid password' ? (
+                    <span>
+                      {errors.password}
+                      <button
+                        type="button"
+                        style={{
+                          marginLeft: '10px',
+                          color: 'navy',
+                        }}
+                        onClick={() => {
+                          Notiflix.Notify.init({
+                            messageMaxLength: 150,
+                            position: 'center-top',
+                          });
+                          Notify.warning(
+                            'Your password must be 8-30 characters long and must contain 1 lowercase letter, 1 uppercase letter, 1 digit and 1 special sign.'
+                          );
+                        }}
+                      >
+                        learn more
+                      </button>
+                    </span>
+                  ) : (
+                    <span>{errors.password}</span>
+                  )}
                 </p>
               ) : null}
 
@@ -145,6 +173,8 @@ export const RegistrationForm = () => {
                 name="password"
                 placeholder="Password"
                 id="password"
+                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#@$!%&*?])[A-Za-z\\d#@$!%&*?]{8,30}$"
+                title="Your password must contain atleast 1 lower case letter, 1 upper case letter, one number and one special character. "
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
