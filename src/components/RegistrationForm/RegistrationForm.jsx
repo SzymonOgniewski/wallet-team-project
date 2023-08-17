@@ -39,7 +39,7 @@ export const RegistrationForm = () => {
       .required('The email field is required'),
     password: Yup.string()
       .matches(
-        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8}$/,
+        /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,30}$/,
         `Invalid password`
       )
       .required('The password field is required'),
@@ -173,8 +173,6 @@ export const RegistrationForm = () => {
                 name="password"
                 placeholder="Password"
                 id="password"
-                pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#@$!%&*?])[A-Za-z\\d#@$!%&*?]{8,30}$"
-                title="Your password must contain atleast 1 lower case letter, 1 upper case letter, one number and one special character. "
                 value={values.password}
                 onChange={handleChange}
                 onBlur={handleBlur}
@@ -255,13 +253,13 @@ export const RegistrationForm = () => {
               />
             </div>
             <div className={styles.buttonContainer}>
-              <button
-                type="submit"
-                className={styles.mainButton}
-                disabled={!isValid && !dirty}
-              >
-                Register
-              </button>
+                <button
+                  type="submit"
+                  className={styles.mainButton}
+                  disabled={!isValid && !dirty}
+                >
+                  Register
+                </button>
 
               <Link to="/login">
                 <button type="button" className={styles.secondaryButton}>
